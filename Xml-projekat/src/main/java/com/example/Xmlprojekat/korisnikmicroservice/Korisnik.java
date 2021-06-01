@@ -2,6 +2,7 @@ package com.example.Xmlprojekat.korisnikmicroservice;
 
 
 import com.example.Xmlprojekat.Enumeracija.Pol;
+import com.example.Xmlprojekat.Enumeracija.Uloga;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -40,6 +41,9 @@ public class Korisnik {
 
         @Column
         private Pol polKorisnika;
+
+        @Column
+        private Uloga ulogaKorisnika;
 
         @OneToMany(mappedBy = "following")
        // private List<FollowingList> followingList;
