@@ -2,6 +2,7 @@ package com.example.profilmicroservis;
 
 
 import com.example.profilmicroservis.enumeracija.Pol;
+import com.example.profilmicroservis.enumeracija.Uloga;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
@@ -36,5 +37,17 @@ public class Profil {
 
         @Column
         private Pol polKorisnika;
+
+        @Column
+        private String biografija;
+
+        @Column
+        private String websajt;
+
+     //   @Column
+       // private Uloga ulogaKorisnika;
+
+        @Column
+        private boolean privatniProfil;
 
 }
