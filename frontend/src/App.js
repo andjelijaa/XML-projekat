@@ -1,14 +1,18 @@
 import './App.css';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Registracija from "./components/register/register";
+import Login from "./components/login/login";
+import Home from "./components/home/home";
 
 function App() {
   return (
-    <main>
-      <div className="flex w-screen h-screen justify-center items-center">
-        <h1 className="border border-12 border-blue-900 p-12 font-mono text-2xl text-blue-900 shadow-2xl">NISTAGRAM</h1>
-      </div>
-
-    </main>
+    <BrowserRouter>
+      <Switch>
+        <Route component={Home} path="/" exact/>
+        <Route component={Registracija} path="/registracija"/>
+        <Route component={Login} path="/login"/>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
