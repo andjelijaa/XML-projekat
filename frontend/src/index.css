@@ -1,1 +1,10 @@
 @import url("https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css");
+
+.background{
+    position: absolute;
+    background-image: url("./components/register/background.jpg");
+    background-size: cover;
+    background-position: center center;
+    filter: blur(3px);
+    z-index: -2;
+}
