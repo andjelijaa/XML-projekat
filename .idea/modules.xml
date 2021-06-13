@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Autentifikacijamicroservis/Autentifikacijamicroservis.iml" filepath="$PROJECT_DIR$/Autentifikacijamicroservis/Autentifikacijamicroservis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Objavemicroservis/Objavemicroservis.iml" filepath="$PROJECT_DIR$/Objavemicroservis/Objavemicroservis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Profilmicroservis/Profilmicroservis.iml" filepath="$PROJECT_DIR$/Profilmicroservis/Profilmicroservis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/XML-projekat.iml" filepath="$PROJECT_DIR$/.idea/XML-projekat.iml" />
+    </modules>
+  </component>
+</project>
