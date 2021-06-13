@@ -1,24 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className="flex w-screen h-screen justify-center items-center">
+        <h1 className="border border-12 border-blue-900 p-12 font-mono text-2xl text-blue-900 shadow-2xl">NISTAGRAM</h1>
+      </div>
+
+    </main>
   );
 }
 
