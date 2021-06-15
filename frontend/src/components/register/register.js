@@ -1,4 +1,23 @@
+import axios from "axios";
+
+
+
 function registracija(){
+      axios({
+        method: 'post',
+        url: 'http://localhost:7878',
+        data: {
+          ime: 'Finn',
+          prezime: 'Williams',
+          username:'user',
+          email:'ema',
+          password:'pass',
+          repeatPassword:'pass1'
+
+        }
+      });
+
+
     return(
         <main className="flex w-screen h-screen justify-center items-center">
             <div className="background w-screen h-screen"></div>
