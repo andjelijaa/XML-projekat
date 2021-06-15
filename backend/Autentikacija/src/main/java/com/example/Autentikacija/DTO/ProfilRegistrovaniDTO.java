@@ -10,5 +10,5 @@ public class ProfilRegistrovaniDTO {
     private  String prezime;
     private String email;
     private String password;
-    private String repeatPassword;
+
 }

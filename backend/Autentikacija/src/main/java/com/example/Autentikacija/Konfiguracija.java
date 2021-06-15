@@ -34,20 +34,13 @@ public class Konfiguracija extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                // Disable Cross Site Request Forgery security
                 .csrf().disable()
-                // Entry point for Unauthorized requests
                 .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint)
-                // Enable anyone to access methods of Quoted mapping (without Authorisation)
                 .and().authorizeRequests()
                 .antMatchers("/profilRegistrovanog/**").permitAll()
-                // Every other request needs Authorisation
                 .anyRequest().authenticated()
-                // Enable CORS layer (WebMvcConfig class)
                 .and().cors()
-                // Disables sessions for spring security (We use jwt to manage session)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                // Makes RequestFilter class to execute before each controller method
                 .and().addFilterBefore(requestFilter, BasicAuthenticationFilter.class);
     }
 

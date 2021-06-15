@@ -2,11 +2,18 @@ package com.example.Autentikacija.Service;
 
 import com.example.Autentikacija.DTO.ProfilRegistrovaniDTO;
 import com.example.Autentikacija.Entity.ProfilRegistrovani;
-import com.example.Autentikacija.Konekcija.ProfilKonekcija;
+
+import com.example.Autentikacija.Exception.BadRequestException;
+import com.example.Autentikacija.Exception.NotFoundException;
 import com.example.Autentikacija.Repository.ProfilRegistrovaniRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 
@@ -22,9 +29,12 @@ public class ProfilRegoistrovaniService implements ProfilRegostrovani1Service {
     @Autowired
     private  Uloga1Service ulogaService;
 
-    @Autowired
-    private  ProfilKonekcija profilKonekcija;
+    private final RestTemplate restTemplate;
 
+    @Autowired
+    public ProfilRegoistrovaniService() {
+        this.restTemplate = new RestTemplate();
+    }
 
     public ProfilRegistrovani findByUsername(String username) {
         ProfilRegistrovani profilRegistrovani = profilRegistrovaniRepository.findByUsername(username);
@@ -42,7 +52,8 @@ public class ProfilRegoistrovaniService implements ProfilRegostrovani1Service {
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
         profilRegistrovani.setUloge(ulogaService.findByName("ROLE_USER"));
        try{
-            profilKonekcija.register(profilRegistrovaniDTO);
+           restTemplate.exchange("http://localhost:2222/profil-api/add",
+                   HttpMethod.POST, new HttpEntity<>(profilRegistrovaniDTO, new HttpHeaders()), ResponseEntity.class);
         }catch (Exception e){
             throw new BadRequestException("Neuspesna registracija!");
         }
