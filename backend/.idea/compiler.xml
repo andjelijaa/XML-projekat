@@ -2,17 +2,20 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Objavemicroservis" />
+        <module name="Autentikacija" />
         <module name="Profilmicroservis" />
         <module name="Autentifikacijamicroservis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Autentifikacijamicroservis" target="11" />
+      <module name="Autentikacija" target="11" />
       <module name="Objavemicroservis" target="11" />
       <module name="Profilmicroservis" target="11" />
     </bytecodeTargetLevel>
@@ -20,6 +23,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Autentifikacijamicroservis" options="-parameters" />
+      <module name="Autentikacija" options="-parameters" />
       <module name="Objavemicroservis" options="-parameters" />
       <module name="Profilmicroservis" options="-parameters" />
     </option>
