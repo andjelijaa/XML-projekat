@@ -4,7 +4,7 @@ package com.example.Autentikacija.Entity;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
+import com.example.Autentikacija.Entity.Uloga;
 import javax.persistence.*;
 import java.util.Collection;
 
