@@ -15,8 +15,9 @@ services:
   proxy:
     image: proxy
     container_name: proxy
-    build: ./backend/proxy
-    dockerfile: Dockerfile
+    build:
+      context: ./backend/proxy
+      dockerfile: Dockerfile
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
     tty: true
@@ -27,9 +28,10 @@ services:
     depends_on:
       - eureka
 
-   frontend:
-    build: ./frontend
-    dockerfile: Dockerfile
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: frontend
     restart: on-failure
     ports:
@@ -40,8 +42,8 @@ services:
 
 
   Profilmicroservis:
-    image: Profilmicroservis
-    container_name: Profilmicroservis
+    image: profilmicroservis
+    container_name: profilmicroservis
     build:
       context: ./backend/Profilmicroservis
       dockerfile: Dockerfile
@@ -62,8 +64,8 @@ services:
       - mysql
 
   Objavemicroservis:
-    image: Objavemicroservis
-    container_name: Objavemicroservis
+    image: objavemicroservis
+    container_name: objavemicroservis
     build:
       context: ./backend/Objavemicroservis
       dockerfile: Dockerfile
@@ -85,8 +87,8 @@ services:
 
 
   Autentikacija:
-    image: Autentikacija
-    container_name: Autentikacija
+    image: autentikacija
+    container_name: autentikacija
     build:
       context: ./backend/Autentikacija
       dockerfile: Dockerfile
@@ -116,8 +118,6 @@ services:
       - ./mysql:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: root
-
-
 
 networks:
   demo:
