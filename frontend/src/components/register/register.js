@@ -25,22 +25,27 @@ function registracija(){
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
 
+    const 
     handleIme = (e) => {
       setIme(e.target.value);
     }
 
+    const
     handlePrezime = (e) => {
       setPrezime(e.target.value);
     }
-
+  
+    const 
     handleEmail = (e) => {
       setEmail(e.target.value);
     }
-
+    
+    const
     handleUsername = (e) => {
       setUsername(e.target.value);
     }
 
+    const 
     handlePassword = (e) => {
       setPassword(e.target.value);
     }
