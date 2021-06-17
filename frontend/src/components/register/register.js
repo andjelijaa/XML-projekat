@@ -47,7 +47,7 @@ function Registracija(){
         "username" : username
       }
 
-      axios.post("http://localhost:2222/autentikacija-api/add", userData)
+      axios.post("/autentikacija-api/profilRegistrovanog/add", userData)
       .then(res => alert(res.data))
 
     }

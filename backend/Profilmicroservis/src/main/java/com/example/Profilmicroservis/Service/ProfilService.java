@@ -9,19 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProfilService implements Profil1Service{
+public class ProfilService {
 
 
     @Autowired
     private ProfilRepository profilRepository;
-
-    public List<Profil> getAll() {
-        List<Profil> profili = profilRepository.findAll();
-        return profili;
-    }
-
-
-
-
 
 }
