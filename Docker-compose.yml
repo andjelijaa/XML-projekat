@@ -28,17 +28,6 @@ services:
     depends_on:
       - eureka
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: frontend
-    restart: on-failure
-    ports:
-      - "3000:3000"
-    networks:
-      - demo
-
 
 
   Profilmicroservis:

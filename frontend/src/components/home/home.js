@@ -1,4 +1,4 @@
-function home(){
+function Home(){
     return(
         <main>
             <div className="flex w-screen h-screen justify-center items-center">
@@ -8,4 +8,4 @@ function home(){
     )
 }
 
-export default home;
+export default Home;

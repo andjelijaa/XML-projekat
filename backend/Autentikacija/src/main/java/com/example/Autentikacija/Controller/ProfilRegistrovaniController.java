@@ -24,7 +24,7 @@ public class ProfilRegistrovaniController {
     private jwtService jwtService;
 
 
-    @PostMapping("/add")
+    @PostMapping("add/")
     public void register(@RequestBody ProfilRegistrovaniDTO profilReg) {
         profilRegostrovani1Service.register(profilReg);
     }

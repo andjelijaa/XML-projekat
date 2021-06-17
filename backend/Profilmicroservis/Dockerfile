@@ -1,4 +1,4 @@
-FROM maven:3.8.1-ibmjava-8-alpine AS appBuild
+FROM maven:3.8.1-openjdk-16 AS appBuild
 WORKDIR /usr/src/Profilmicroservis
 COPY . .
 RUN ["mvn", "package", "-DskipTests"]
