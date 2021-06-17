@@ -1,4 +1,4 @@
-package com.example.Profilmicroservis;
+package com.example.Profilmicroservis.Entitiy;
 
 
 import javax.persistence.*;

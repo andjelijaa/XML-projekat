@@ -1,7 +1,7 @@
-package com.example.Profilmicroservis;
+package com.example.Profilmicroservis.Entitiy.DTO;
 
-import com.example.Profilmicroservis.Entity.Enumeracija.Pol;
-import com.example.Profilmicroservis.Entity.Enumeracija.Uloga;
+import com.example.Profilmicroservis.Entitiy.Enumeracija.Pol;
+import com.example.Profilmicroservis.Entitiy.Enumeracija.Uloga;
 
 import java.util.Date;
 

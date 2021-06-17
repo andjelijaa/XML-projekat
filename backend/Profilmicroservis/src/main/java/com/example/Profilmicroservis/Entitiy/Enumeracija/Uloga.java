@@ -1,4 +1,4 @@
-package com.example.Profilmicroservis.Entity.Enumeracija;
+package com.example.Profilmicroservis.Entitiy.Enumeracija;
 
 public enum Uloga {
    NEREGISTROVANI,
