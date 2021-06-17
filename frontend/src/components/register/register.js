@@ -39,9 +39,17 @@ function Registracija(){
     }
 
     function handleSubmit(){
-      
-      axios.post("http://localhost:2222/autentikacija-api/add", ime, prezime, username, email, password)
-      .then(res => console.log(res.data));
+      const userData = {
+        "ime" : ime,
+        "prezime" : prezime,
+        "email" : email,
+        "password" : password,
+        "username" : username
+      }
+
+      axios.post("http://localhost:2222/autentikacija-api/add", userData)
+      .then(res => alert(res.data))
+
     }
 
     return(
@@ -60,7 +68,6 @@ function Registracija(){
                     <label htmlFor="password">Lozinka : </label>
                     <input onChange={handlePassword} className="border border-12 shadow-2xl my-2" name="password" type="password"></input>
                     <button onClick={handleSubmit} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
-                    
              </form>
         </main>
     )
