@@ -10,5 +10,6 @@ import javax.persistence.Id;
 public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  long id;
+    private Long id;
+
 }
