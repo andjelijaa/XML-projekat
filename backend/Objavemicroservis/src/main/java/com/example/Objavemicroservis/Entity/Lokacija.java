@@ -1,5 +1,6 @@
 package com.example.Objavemicroservis.Entity;
 
+
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,4 +16,6 @@ public class Lokacija {
 
     @Column(nullable = false, unique = true)
     private String naziv_mesta;
+
+
 }
