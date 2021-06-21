@@ -13,28 +13,23 @@ function Registracija(){
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
 
-    const 
-    handleIme = (e) => {
+    const handleIme = (e) => {
       setIme(e.target.value);
     }
 
-    const
-    handlePrezime = (e) => {
+    const handlePrezime = (e) => {
       setPrezime(e.target.value);
     }
   
-    const 
-    handleEmail = (e) => {
+    const handleEmail = (e) => {
       setEmail(e.target.value);
     }
     
-    const
-    handleUsername = (e) => {
+    const handleUsername = (e) => {
       setUsername(e.target.value);
     }
 
-    const 
-    handlePassword = (e) => {
+    const handlePassword = (e) => {
       setPassword(e.target.value);
     }
 
