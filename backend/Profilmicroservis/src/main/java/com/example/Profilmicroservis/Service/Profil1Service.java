@@ -8,7 +8,20 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class Profil1Service {
+public interface Profil1Service {
+
+    List<Profil> getAll();
+
+    List<Profil> pretraga(String username);
+
+
+    Profil findUserByUsername(String username);
+
+    Profil findUserByEmail(String email);
+
+    Profil registerProfil(ProfilRegistrovaniDTO profilReg);
+
+    Profil save(Profil profil);
 
 
 

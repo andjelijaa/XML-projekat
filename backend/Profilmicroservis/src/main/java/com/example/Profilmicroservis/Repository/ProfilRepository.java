@@ -12,11 +12,12 @@ public interface ProfilRepository extends JpaRepository<Profil, Long> {
 
     List<Profil> findAll();
 
-    List<Profil> search(String username);
+    List<Profil> pretraga(String username);
 
     Profil save(Profil profil);
 
     Profil findByUsername(String username);
 
+    Profil findByEmail(String email);
 
 }
