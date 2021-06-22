@@ -3,12 +3,14 @@ package com.example.Profilmicroservis.Entitiy;
 
 import com.example.Profilmicroservis.Entitiy.Enumeracija.Pol;
 import com.example.Profilmicroservis.Entitiy.Enumeracija.Uloga;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "Profil")
+@Data
 public class Profil {
 
         @Id
