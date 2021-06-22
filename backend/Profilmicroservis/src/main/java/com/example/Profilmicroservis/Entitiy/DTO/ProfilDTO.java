@@ -2,9 +2,11 @@ package com.example.Profilmicroservis.Entitiy.DTO;
 
 import com.example.Profilmicroservis.Entitiy.Enumeracija.Pol;
 import com.example.Profilmicroservis.Entitiy.Enumeracija.Uloga;
+import lombok.Data;
 
 import java.util.Date;
 
+@Data
 public class ProfilDTO {
     private String ime;
     private String prezime;
@@ -16,4 +18,6 @@ public class ProfilDTO {
     private String webSite;
     private String biografija;
     private Uloga uloga;
+
+
 }
