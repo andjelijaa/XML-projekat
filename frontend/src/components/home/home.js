@@ -15,19 +15,19 @@ function Home(){
             <nav className="flex flex-row justify-between items-center w-full text-center border border-12 p-4 border-blue-900 font-mono text-2xl bg-blue-400 text-white shadow-2xl">
                     <div>
                         <Link to="/" className="ml-24">
-                            Home
+                            Home <i class="fa fa-home"></i>
                         </Link>
-                        <Link className="mx-24">
-                            Pretrage
+                        <Link to="/pretrage" className="mx-24">
+                            Pretrage <i class="fa fa-search"></i>
                         </Link>
                     </div>
                  
                     <div>
                         <Link to="/registracija" className="mx-24">
-                            Registracija
+                            Registracija <i class="fa fa-address-book"></i>
                         </Link>
                         <Link to="/login" className="mr-24">
-                            Login
+                            Login <i class="fa fa-share"></i>
                         </Link>
                     </div>                  
             </nav>
