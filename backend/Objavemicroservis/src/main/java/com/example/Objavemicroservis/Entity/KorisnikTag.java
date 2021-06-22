@@ -1,19 +1,16 @@
 package com.example.Objavemicroservis.Entity;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Data
-
-public class Lokacija {
-
+public class KorisnikTag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String naziv_mesta;
+    @Column(nullable = false)
+    private String username;
 }

@@ -11,6 +11,10 @@ public class Komentar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false, length = 256)
     private String tekst;
+
+    @Column
+    private String username;
 }

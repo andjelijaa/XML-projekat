@@ -19,16 +19,27 @@ public class Objava {
     @Column
     private String opis;
 
-    //ili je za komentare lista?
+    @Column(nullable = false, unique = true, length = 64)
+    private String nazivFajla;
+
     @Column
     private String komentari;
 
+    @Column
+    private String username;
+
     @ManyToMany
-    private List<Tagovi> tagovi;
+    private List<KorisnikTag> korisnikTagovi;
+
+    @ManyToMany
+    private List<Hashtag> hashtagovi;
 
     @OneToOne
     private Lokacija lokacija;
 
     @OneToOne
     private Album album;
+
+    @Column
+    private boolean da_li_je_slika = true;
 }

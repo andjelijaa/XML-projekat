@@ -13,6 +13,8 @@ public class Lajk {
     private Long id;
 
     @Column
-    private boolean lajkovano = true;
+    private String username;
 
+    @Column
+    private boolean lajkovano = true;
 }
