@@ -8,6 +8,8 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Table(name="objava")
+@Entity
 public class Objava {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

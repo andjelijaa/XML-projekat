@@ -11,6 +11,7 @@ import java.util.List;
 
 @Repository
 public interface ObjavaPodaciRepository extends JpaRepository<ObjavaPodaci, Long> {
+
     ObjavaPodaci sacuvaj(ObjavaPodaci objavaPodaci);
 
     List<ObjavaPodaci> pronadjiSve();

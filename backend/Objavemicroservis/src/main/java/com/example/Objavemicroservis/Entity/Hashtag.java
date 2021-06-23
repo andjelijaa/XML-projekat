@@ -9,6 +9,8 @@ import java.util.List;
 
 @Entity
 @Data
+@Table(name="hashtag")
+
 public class Hashtag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

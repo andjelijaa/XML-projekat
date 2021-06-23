@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class HashtagService implements IHashtagService {
 
-    @Autowired
+
     private HashtagRepository tagRepository;
 
     @Override

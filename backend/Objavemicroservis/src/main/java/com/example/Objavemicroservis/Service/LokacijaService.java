@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public class LokacijaService implements ILokacijaService {
 
-    @Autowired
     private LokacijaRepository lokacijaRepository;
 
     @Override
