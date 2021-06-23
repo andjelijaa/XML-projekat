@@ -1,5 +1,7 @@
-package com.example.Objavemicroservis.service.interfejs;
+package com.example.Objavemicroservis.Service.interfejs;
 
+
+import com.example.Objavemicroservis.Entity.Hashtag;
 
 import java.util.List;
 
@@ -9,6 +11,6 @@ public interface IHashtagService {
 
     Hashtag kreiraj(Hashtag hashtag);
 
-    List<Hashtag> kreirajHasTag(List<String> tagovi);
+    List<Hashtag> kreirajHashTag(List<String> tagovi);
 }
 

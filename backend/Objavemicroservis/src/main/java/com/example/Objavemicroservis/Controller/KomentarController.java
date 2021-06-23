@@ -1,9 +1,9 @@
 package com.example.Objavemicroservis.Controller;
 
-import com.mediamicroservice.mediamicroservice.controller.dto.CreateCommentDto;
-import com.mediamicroservice.mediamicroservice.domain.Comment;
-import com.mediamicroservice.mediamicroservice.logger.Logger;
-import com.mediamicroservice.mediamicroservice.service.interfaces.ICommentService;
+
+import com.example.Objavemicroservis.DTO.KomentarDTO;
+import com.example.Objavemicroservis.Entity.Komentar;
+import com.example.Objavemicroservis.Service.interfejs.IKomentarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +16,6 @@ public class KomentarController{
 
     @PostMapping
     public Komentar kreirajKomentar(@RequestBody KomentarDTO komentarDTO) {
-        return KomentarService.kreirajKomentar(komentarDTO);
+        return komentarService.kreirajKomentar(komentarDTO);
     }
 }

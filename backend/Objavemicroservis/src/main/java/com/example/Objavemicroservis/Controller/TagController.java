@@ -1,11 +1,11 @@
 package com.example.Objavemicroservis.Controller;
 
-import com.mediamicroservice.mediamicroservice.controller.dto.CreateCommentDto;
-import com.mediamicroservice.mediamicroservice.domain.Comment;
-import com.mediamicroservice.mediamicroservice.logger.Logger;
-import com.mediamicroservice.mediamicroservice.service.interfaces.ICommentService;
+import com.example.Objavemicroservis.Entity.Hashtag;
+import com.example.Objavemicroservis.Service.interfejs.IHashtagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/tag")

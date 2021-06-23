@@ -1,6 +1,13 @@
-package com.example.Objavemicroservis.service;
+package com.example.Objavemicroservis.Service;
 
 
+import com.example.Objavemicroservis.Entity.Hashtag;
+import com.example.Objavemicroservis.Repository.HashtagRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.example.Objavemicroservis.Service.interfejs.IHashtagService;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -12,9 +19,9 @@ public class HashtagService implements IHashtagService {
 
     @Override
     public List<Hashtag> getAll() {
-        List<Hashtag> tags = tagRepository.pronadjiSve();
-        if (tags.isEmpty())
-            return tags;
+        List<Hashtag> tagovi = tagRepository.pronadjiSve();
+
+            return tagovi;
     }
 
     @Override
@@ -22,13 +29,14 @@ public class HashtagService implements IHashtagService {
         return tagRepository.sacuvaj(tag);
     }
 
+
     @Override
-    public List<Hashtag> kreirajTagove(List<String> tags) {
+    public List<Hashtag> kreirajHashTag(List<String> tags) {
         List<Hashtag> tagDb = new ArrayList<>();
         for (String t : tags) {
             if (tagRepository.pronadjiPoImenu(t) == null) {
                 Hashtag tag = new Hashtag();
-                tag.setName(t.toLowerCase());
+                tag.setNaziv_hashtaga(t.toLowerCase());
                 kreiraj(tag);
                 tagDb.add(tag);
             }

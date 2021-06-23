@@ -1,5 +1,7 @@
-package com.example.Objavemicroservis.service.interfejs;
+package com.example.Objavemicroservis.Service.interfejs;
 
+
+import com.example.Objavemicroservis.Entity.Lokacija;
 
 import java.util.List;
 
