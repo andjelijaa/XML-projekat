@@ -1,8 +1,11 @@
 package com.example.Objavemicroservis.service;
 
-import com.mediamicroservice.mediamicroservice.controller.dto.CreateLikeDto;
-import com.mediamicroservice.mediamicroservice.domain.Like;
 
+import com.example.Objavemicroservis.Entity.Lokacija;
+import com.example.Objavemicroservis.Repository.LokacijaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.example.Objavemicroservis.service.interfejs.ILokacijaService
 import java.util.List;
 
 @Service

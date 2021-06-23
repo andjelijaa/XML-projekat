@@ -1,7 +1,7 @@
 package com.example.Objavemicroservis.service;
 
-import com.mediamicroservice.mediamicroservice.controller.dto.CreateLikeDto;
-import com.mediamicroservice.mediamicroservice.domain.Like;
+
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

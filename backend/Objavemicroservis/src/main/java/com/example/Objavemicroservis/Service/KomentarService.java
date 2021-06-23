@@ -1,20 +1,15 @@
 package com.example.Objavemicroservis.service;
 
-import com.mediamicroservice.mediamicroservice.controller.dto.CreateLikeDto;
-import com.mediamicroservice.mediamicroservice.domain.Like;
 
+import org.springframework.stereotype.Service;
+import org.
 import java.util.List;
 
 @Service
-public class KomentarService implements KomentarService {
+public class KomentarService implements iKomentarService {
 
     @Autowired
     private KomentarRepository komentarRepository;
-
-    //
-
-
-
 
     @Override
     public List<Komentar> getAllByPost(Long id) {

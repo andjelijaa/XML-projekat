@@ -1,8 +1,11 @@
 package com.example.Objavemicroservis.service;
 
-import com.mediamicroservice.mediamicroservice.controller.dto.CreateLikeDto;
-import com.mediamicroservice.mediamicroservice.domain.Like;
-
+import com.example.Objavemicroservis.DTO.LajkDTO;
+import com.example.Objavemicroservis.Entity.Lajk;
+import com.example.Objavemicroservis.Repository.LajkRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.example.Objavemicroservis.service.interfejs.IObjavaPodaciService
 import java.util.List;
 
 @Service
@@ -14,7 +17,6 @@ public class LajkService implements ILajkService {
     @Autowired
     private IObjavaPodaciService objavaPodaciService;
 
-    //
     @Override
     public Like kreirajLajk(LajkDTO lajkDTO) {
         ObjavaPodaci objavaPodaci = objavaPodaciService.getById(lajkDTO.getPostId());
