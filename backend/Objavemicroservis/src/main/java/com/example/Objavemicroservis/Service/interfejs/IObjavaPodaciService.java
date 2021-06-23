@@ -15,19 +15,7 @@ public interface IObjavaPodaciService {
 
     ObjavaPodaci sacuvajSlikaInfo(ObjavaDTO slikaDto);
 
-   // List<ImageBytesDto> getImagesFiles(List<Post> posts);
-
-   // ImageBytesDto getImageFile(Post post);
-
-   // ImageBytesDto imageFile(Post post, String filePath);
-
     ObjavaPodaci getById(Long id);
-
-    //ImageBytesDto getImageFileById(Long id);
-
-    //List<ImageBytesDto> searchTag(String tag);
-
-   // List<ImageBytesDto> searchLocation(String location);
 
     List<ObjavaPodaci> getJavneObjave();
 }
