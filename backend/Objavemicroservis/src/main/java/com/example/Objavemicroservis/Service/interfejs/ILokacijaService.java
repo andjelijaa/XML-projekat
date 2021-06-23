@@ -11,7 +11,6 @@ public interface ILokacijaService {
 
     Lokacija kreirajLokaciju (Lokacija lokacija);
 
-
     Lokacija pronadji_po_ID(Long id);
 
     Lokacija pronadji_po_imenu(String naziv_mesta);
