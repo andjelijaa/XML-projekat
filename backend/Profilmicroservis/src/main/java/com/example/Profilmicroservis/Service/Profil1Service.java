@@ -21,7 +21,7 @@ public interface Profil1Service {
 
     Profil registerProfil(ProfilRegistrovaniDTO profilReg);
 
-    Profil save(Profil profil);
+    Profil sacuvaj(Profil profil);
 
 
 

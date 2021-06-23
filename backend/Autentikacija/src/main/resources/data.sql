@@ -1,0 +1,1 @@
+INSERT INTO profil_registrovani (id, username , password) VALUES (814, "milan", "nesto");

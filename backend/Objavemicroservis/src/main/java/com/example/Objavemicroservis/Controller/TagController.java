@@ -16,6 +16,7 @@ public class TagController {
 
     @GetMapping
     public List<Hashtag> getAll() {
+
         return tagService.getAll();
     }
 

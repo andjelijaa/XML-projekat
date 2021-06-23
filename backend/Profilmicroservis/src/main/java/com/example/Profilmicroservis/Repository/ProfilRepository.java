@@ -14,7 +14,7 @@ public interface ProfilRepository extends JpaRepository<Profil, Long> {
 
     List<Profil> pretraga(String username);
 
-    Profil save(Profil profil);
+    Profil sacuvaj(Profil profil);
 
     Profil findByUsername(String username);
 

@@ -3,24 +3,24 @@ package com.example.Objavemicroservis.Service;
 
 import com.example.Objavemicroservis.DTO.KomentarDTO;
 import com.example.Objavemicroservis.Entity.Komentar;
-import com.example.Objavemicroservis.Entity.Objava;
-import com.example.Objavemicroservis.Entity.ObjavaPodaci;
-import com.example.Objavemicroservis.Repository.KomentarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.Objavemicroservis.Service.interfejs.IKomentarService;
 import java.util.List;
+import com.example.Objavemicroservis.Repository.KomentarRepository;
 
 @Service
 public class KomentarService implements IKomentarService {
 
-    @Autowired
-    private KomentarRepository komentarRepository;
+
+
+     @Autowired
+     private KomentarRepository komentarRepository;
 
     @Override
     public List<Komentar> getAllByPost(Long id) {
-
-        return null;
+        List<Komentar> komentari=komentarRepository.pronadjiSve();
+        return komentari;
     }
 
 
