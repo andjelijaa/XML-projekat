@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface LajkRepository extends JpaRepository<Lajk, Long> {
-    Lajk sacuvah(Lajk lajk);
+    Lajk sacuvaj(Lajk lajk);
     List<Lajk> pronadjiSve();
     List<Lajk> pronadjiLajkPoUsername(String username);
 }
