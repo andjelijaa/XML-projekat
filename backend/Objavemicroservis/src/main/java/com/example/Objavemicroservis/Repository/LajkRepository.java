@@ -1,6 +1,6 @@
 package com.example.Objavemicroservis.Repository;
 
-import com.mediamicroservice.mediamicroservice.domain.Like;
+import com.example.Objavemicroservis.Entity.Lajk;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

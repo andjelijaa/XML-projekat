@@ -1,8 +1,11 @@
-package com.example.Objavemicroservis.service;
+package com.example.Objavemicroservis.Service;
 
-import com.mediamicroservice.mediamicroservice.controller.dto.CreateLikeDto;
-import com.mediamicroservice.mediamicroservice.domain.Like;
 
+import com.example.Objavemicroservis.Entity.Lokacija;
+import com.example.Objavemicroservis.Repository.LokacijaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.example.Objavemicroservis.Service.interfejs.ILokacijaService;
 import java.util.List;
 
 @Service
@@ -13,7 +16,7 @@ public class LokacijaService implements ILokacijaService {
 
     @Override
     public List<Lokacija> getAll() {
-        List<Lokacija> lokacije = lokacijaRepository.pronadjiSveAll();
+        List<Lokacija> lokacije = lokacijaRepository.pronadjiSve();
         return lokacije;
         //
     }

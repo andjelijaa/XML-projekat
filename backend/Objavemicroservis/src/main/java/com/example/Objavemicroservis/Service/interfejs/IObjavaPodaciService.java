@@ -1,7 +1,8 @@
-package com.example.Objavemicroservis.service.interfejs;
+package com.example.Objavemicroservis.Service.interfejs;
 
-import com.mediamicroservice.mediamicroservice.controller.dto.CreateLikeDto;
-import com.mediamicroservice.mediamicroservice.domain.Like;
+
+import com.example.Objavemicroservis.DTO.ObjavaDTO;
+import com.example.Objavemicroservis.Entity.ObjavaPodaci;
 
 import java.util.List;
 

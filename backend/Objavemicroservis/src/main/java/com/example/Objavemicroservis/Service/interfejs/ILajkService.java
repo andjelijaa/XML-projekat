@@ -1,13 +1,13 @@
-package com.example.Objavemicroservis.service.interfejs;
+package com.example.Objavemicroservis.Service.interfejs;
 
-import com.mediamicroservice.mediamicroservice.controller.dto.CreateLikeDto;
-import com.mediamicroservice.mediamicroservice.domain.Like;
+import com.example.Objavemicroservis.DTO.LajkDTO;
+import com.example.Objavemicroservis.Entity.Lajk;
 
 import java.util.List;
 
-public interface LajkService {
+public interface ILajkService {
 
-    Lajk kreirajLajk(LajkDto lajkDto);
+    Lajk kreirajLajk(LajkDTO lajkDto);
 
     Integer prebrojLajkove(Long id);
 
