@@ -21,4 +21,6 @@ public interface ObjavaPodaciRepository extends JpaRepository<ObjavaPodaci, Long
     ObjavaPodaci pronadji_objavapodaci_po_ID(Long id);
 
     List<ObjavaPodaci> pretraziLokaciju(String lokacija);
+
+    List<ObjavaPodaci> pretraziTag(String tag);
 }
