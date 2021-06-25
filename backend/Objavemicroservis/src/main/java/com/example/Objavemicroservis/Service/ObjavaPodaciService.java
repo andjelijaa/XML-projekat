@@ -46,16 +46,31 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
 
     @Override
     public ObjavaPodaci sacuvajSlikaInfo(ObjavaDTO slikaDto) {
+
         return null;
     }
 
     @Override
     public ObjavaPodaci getById(Long id) {
+
+        return null;
+    }
+
+    @Override
+    public List<ObjavaPodaci> pretraziLokaciju(String lokacija) {
+
+        return null;
+    }
+
+    @Override
+    public List<ObjavaPodaci> pretraziTag(String tag) {
+
         return null;
     }
 
     @Override
     public List<ObjavaPodaci> getJavneObjave() {
+
         return null;
     }
 
@@ -67,6 +82,6 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
         return null;
     }
 
-
+ // dodati pretragu po lokaciji(gore) i tagu,getimagesfile
 
 }
