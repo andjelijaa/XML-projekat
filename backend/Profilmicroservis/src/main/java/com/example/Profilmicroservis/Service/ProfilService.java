@@ -13,7 +13,6 @@ import java.util.List;
 @Service
 public class ProfilService implements  Profil1Service {
 
-    @Autowired
     private ProfilRepository profilRepository;
 
     @Override
