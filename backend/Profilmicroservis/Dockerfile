@@ -3,7 +3,7 @@ WORKDIR /usr/src/Profilmicroservis
 COPY . .
 RUN ["mvn", "package", "-DskipTests"]
 
-FROM openjdk:8-jdk-alpine AS appRuntime
+FROM openjdk:16-jdk AS appRuntime
 WORKDIR /Profilmicroservis
 COPY --from=appBuild /usr/src/Profilmicroservis/target/Profilmicroservis-0.0.1-SNAPSHOT.jar ./
 EXPOSE 7877

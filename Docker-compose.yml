@@ -40,7 +40,7 @@ services:
     networks:
       - demo
     ports:
-      - "7871:7871"
+      - "7879:7879"
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
       DATABASE_USERNAME: root
@@ -50,6 +50,30 @@ services:
     depends_on:
       - eureka
       - mysql
+
+
+  Profilmicroservis:
+    image: profilmicroservis
+    container_name: profilmicroservis
+    build:
+      context: ./backend/Profilmicroservis
+      dockerfile: Dockerfile
+    tty: true
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - "7870:7870"
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: root
+      DATABASE_DOMAIN: mysql
+      DATABASE_SCHEMA: profilbaza?createDatabaseIfNotExist=true&serverTimezone=UTC
+    depends_on:
+      - eureka
+      - mysql
+
 
   mysql:
     image: mysql:8.0.19
