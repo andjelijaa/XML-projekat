@@ -33,14 +33,14 @@ public class HashtagService implements IHashtagService {
     @Override
     public List<Hashtag> kreirajHashTag(List<String> tags) {
         List<Hashtag> tagDb = new ArrayList<>();
-        for (String t : tags) {
-            if (tagRepository.findHashtagByName(t) == null) {
-                Hashtag tag = new Hashtag();
-                tag.setNaziv_hashtaga(t.toLowerCase());
-                kreiraj(tag);
-                tagDb.add(tag);
-            }
-        }
+      //  for (String t : tags) {
+            //if (tagRepository.findByName(t) == null) {
+           //     Hashtag tag = new Hashtag();
+       //         tag.setNaziv_hashtaga(t.toLowerCase());
+    //            kreiraj(tag);
+   //             tagDb.add(tag);
+     //       }
+   //     }
         return tagDb;
     }
 

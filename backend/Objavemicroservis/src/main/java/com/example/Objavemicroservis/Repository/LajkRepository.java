@@ -10,5 +10,5 @@ import java.util.List;
 public interface LajkRepository extends JpaRepository<Lajk, Long> {
     Lajk save(Lajk lajk);
     List<Lajk> findAll();
-    List<Lajk> pronadjiLajkPoUsername(String username);
+    List<Lajk> findByUsername(String username);
 }
