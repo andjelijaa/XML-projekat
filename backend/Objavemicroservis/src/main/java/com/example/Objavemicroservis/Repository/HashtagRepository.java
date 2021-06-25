@@ -12,9 +12,9 @@ import java.util.List;
 @Repository
 public interface HashtagRepository extends JpaRepository<Hashtag, Long> {
 
-    Hashtag sacuvaj(Hashtag hashtag);
+    Hashtag save(Hashtag hashtag);
 
-    List<Hashtag> pronadjiSve();
+    List<Hashtag> findAll();
 
-    Hashtag pronadjiPoImenu(String naziv_hashtaga);
+    Hashtag findHashtagByName(String naziv_hashtaga);
 }

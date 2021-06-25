@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface KomentarRepository extends JpaRepository<Komentar, Long> {
 
-    Komentar sacuvaj(Komentar komentar);
+    Komentar save(Komentar komentar);
 
-    List<Komentar> pronadjiSve();
+    List<Komentar> findAll();
 }
