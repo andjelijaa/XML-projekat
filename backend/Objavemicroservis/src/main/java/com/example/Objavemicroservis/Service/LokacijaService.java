@@ -7,15 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.Objavemicroservis.Service.interfejs.ILokacijaService;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LokacijaService implements ILokacijaService {
 
+
+    @Autowired
     private LokacijaRepository lokacijaRepository;
 
     @Override
     public List<Lokacija> getAll() {
-        List<Lokacija> lokacije = lokacijaRepository.pronadjiSve();
+        List<Lokacija> lokacije = lokacijaRepository.findAll();
         return lokacije;
         //
     }
@@ -23,21 +26,21 @@ public class LokacijaService implements ILokacijaService {
     @Override
     public Lokacija kreirajLokaciju(Lokacija lokacija) {
         Lokacija dbLokacija = new Lokacija();
-        //
+
         return dbLokacija;
     }
 
     @Override
     public Lokacija pronadji_po_ID(Long id) {
-        Lokacija lokacija = lokacijaRepository.pronadji_po_ID(id);
+        //Lokacija lokacija = lokacijaRepository.findById(id);
         //
-        return lokacija;
+        return null;
     }
 
     @Override
     public Lokacija pronadji_po_imenu(String naziv_mesta) {
 
-        Lokacija lokacija = lokacijaRepository.pronadji_po_imenu(naziv_mesta);
+          Lokacija lokacija = lokacijaRepository.findByName(naziv_mesta);
 //        if (lokacija == null)
 
         return lokacija;

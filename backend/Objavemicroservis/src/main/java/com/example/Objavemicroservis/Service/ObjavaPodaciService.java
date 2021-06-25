@@ -29,7 +29,7 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
 
     @Override
     public List<ObjavaPodaci> getAll() {
-        List<ObjavaPodaci> objavaPodacii = objavaPodaciRepository.pronadjiSve();
+        List<ObjavaPodaci> objavaPodacii = objavaPodaciRepository.findAll();
         return objavaPodacii;
     }
 
@@ -37,7 +37,7 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     public ObjavaPodaci sacuvaj(ObjavaPodaci objavaPodaci) {
 
         ObjavaPodaci dbObjavaPodaci = new ObjavaPodaci();
-        dbObjavaPodaci = objavaPodaciRepository.sacuvaj(dbObjavaPodaci);
+        dbObjavaPodaci = objavaPodaciRepository.save(dbObjavaPodaci);
 
         return dbObjavaPodaci;
     }
@@ -61,9 +61,10 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
 
     @Override
     public List<ObjavaPodaci> getKorisnikSlike(String username) {
-        List<ObjavaPodaci> objavaPodaci = objavaPodaciRepository.pronadjiPoObjavaUsername(username);
+        //List<ObjavaPodaci> objavaPodaci = objavaPodaciRepository.findByUsername(username);
 
-        return objavaPodaci;
+        //return objavaPodaci;
+        return null;
     }
 
 

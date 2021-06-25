@@ -29,52 +29,6 @@ services:
       - eureka
 
 
-
-  Profilmicroservis:
-    image: profilmicroservis
-    container_name: profilmicroservis
-    build:
-      context: ./backend/Profilmicroservis
-      dockerfile: Dockerfile
-    tty: true
-    restart: on-failure
-    networks:
-      - demo
-    ports:
-      - "7877:7877"
-    environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
-      DATABASE_USERNAME: root
-      DATABASE_PASSWORD: root
-      DATABASE_DOMAIN: mysql
-      DATABASE_SCHEMA: userdb?createDatabaseIfNotExist=true&serverTimezone=UTC
-    depends_on:
-      - eureka
-      - mysql
-
-  Objavemicroservis:
-    image: objavemicroservis
-    container_name: objavemicroservis
-    build:
-      context: ./backend/Objavemicroservis
-      dockerfile: Dockerfile
-    tty: true
-    restart: on-failure
-    networks:
-      - demo
-    ports:
-      - "7876:7876"
-    environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
-      DATABASE_USERNAME: root
-      DATABASE_PASSWORD: root
-      DATABASE_DOMAIN: mysql
-      DATABASE_SCHEMA: mediadb?createDatabaseIfNotExist=true&serverTimezone=UTC
-    depends_on:
-      - eureka
-      - mysql
-
-
   Autentikacija:
     image: autentikacija
     container_name: autentikacija
@@ -86,13 +40,13 @@ services:
     networks:
       - demo
     ports:
-      - "7878:7878"
+      - "7871:7871"
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: root
       DATABASE_DOMAIN: mysql
-      DATABASE_SCHEMA: authdb?createDatabaseIfNotExist=true&serverTimezone=UTC
+      DATABASE_SCHEMA: autentikacijabaza?createDatabaseIfNotExist=true&serverTimezone=UTC
     depends_on:
       - eureka
       - mysql

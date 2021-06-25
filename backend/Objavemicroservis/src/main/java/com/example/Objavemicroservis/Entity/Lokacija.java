@@ -16,5 +16,5 @@ public class Lokacija {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String naziv_mesta;
+    private String name;
 }

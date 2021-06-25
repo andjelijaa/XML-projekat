@@ -12,13 +12,12 @@ import java.util.List;
 @Repository
 public interface ObjavaPodaciRepository extends JpaRepository<ObjavaPodaci, Long> {
 
-    ObjavaPodaci sacuvaj(ObjavaPodaci objavaPodaci);
+    ObjavaPodaci save(ObjavaPodaci objavaPodaci);
 
-    List<ObjavaPodaci> pronadjiSve();
+    List<ObjavaPodaci> findAll();
 
-    List<ObjavaPodaci> pronadjiPoObjavaUsername(String username);
+    //List<ObjavaPodaci> findByUsername(String username);
 
-    ObjavaPodaci pronadji_objavapodaci_po_ID(Long id);
 
-    List<ObjavaPodaci> pretraziLokaciju(String lokacija);
+   // List<ObjavaPodaci> (String lokacija);
 }
