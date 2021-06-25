@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Slf4j
-@RequestMapping("profil")
+@RequestMapping("/profil")
 @CrossOrigin(origins = "https://localhost:3000")
 @RestController
 public class ProfilController {

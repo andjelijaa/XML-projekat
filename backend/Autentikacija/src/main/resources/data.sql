@@ -1,1 +1,1 @@
-INSERT INTO profil_registrovani (id, username , password) VALUES (814, "milan", "nesto");
+INSERT INTO profil_registrovani (id, password, username) VALUES (1, "Milan", "123");

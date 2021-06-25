@@ -12,9 +12,7 @@ public interface ProfilRepository extends JpaRepository<Profil, Long> {
 
     List<Profil> findAll();
 
-    List<Profil> pretraga(String username);
-
-    Profil sacuvaj(Profil profil);
+    Profil save(Profil profil);
 
     Profil findByUsername(String username);
 

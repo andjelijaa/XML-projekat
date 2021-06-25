@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="AutentikacijaApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="ALTERNATIVE_JRE_PATH" value="14" />
+    <option name="MAIN_CLASS_NAME" value="com.example.Autentikacija.AutentikacijaApplication" />
+    <module name="Autentikacija" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.example.Autentikacija.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

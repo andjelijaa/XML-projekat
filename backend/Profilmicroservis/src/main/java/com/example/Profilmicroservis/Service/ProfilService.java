@@ -13,6 +13,7 @@ import java.util.List;
 @Service
 public class ProfilService implements  Profil1Service {
 
+    @Autowired
     private ProfilRepository profilRepository;
 
     @Override
@@ -23,8 +24,7 @@ public class ProfilService implements  Profil1Service {
 
     @Override
     public List<Profil> pretraga(String username) {
-        List<Profil> profili = profilRepository.pretraga(username);
-        return  profili;
+        return null;
     }
 
 
@@ -38,12 +38,10 @@ public class ProfilService implements  Profil1Service {
     public Profil findUserByEmail(String email) {
         Profil profil= profilRepository.findByEmail(email);
         return profil;
-
     }
 
     @Override
     public Profil registerProfil(ProfilRegistrovaniDTO profilReg) {
-
         return null;
     }
 
