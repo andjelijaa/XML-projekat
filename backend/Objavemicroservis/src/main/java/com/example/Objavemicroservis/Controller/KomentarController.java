@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/komentar")
+
 public class KomentarController{
 
     @Autowired

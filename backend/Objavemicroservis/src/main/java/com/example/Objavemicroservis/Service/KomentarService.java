@@ -19,7 +19,7 @@ public class KomentarService implements IKomentarService {
 
     @Override
     public List<Komentar> getAllByPost(Long id) {
-        List<Komentar> komentari=komentarRepository.pronadjiSve();
+        List<Komentar> komentari=komentarRepository.findAll();
         return komentari;
     }
 
@@ -29,7 +29,7 @@ public class KomentarService implements IKomentarService {
         Komentar komentar = new Komentar();
         komentar.setUsername(komentarDTO.getUsername());
         komentar.setTekst(komentarDTO.getTekst());
-        komentarRepository.sacuvaj(komentar);
+        komentarRepository.save(komentar);
      //dodati
 
         return komentar;

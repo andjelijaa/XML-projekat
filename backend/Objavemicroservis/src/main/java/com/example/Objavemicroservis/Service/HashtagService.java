@@ -19,14 +19,14 @@ public class HashtagService implements IHashtagService {
 
     @Override
     public List<Hashtag> getAll() {
-        List<Hashtag> tagovi = tagRepository.pronadjiSve();
+        List<Hashtag> tagovi = tagRepository.findAll();
 
             return tagovi;
     }
 
     @Override
     public Hashtag kreiraj(Hashtag tag) {
-        return tagRepository.sacuvaj(tag);
+        return tagRepository.save(tag);
     }
 
 
@@ -34,7 +34,7 @@ public class HashtagService implements IHashtagService {
     public List<Hashtag> kreirajHashTag(List<String> tags) {
         List<Hashtag> tagDb = new ArrayList<>();
         for (String t : tags) {
-            if (tagRepository.pronadjiPoImenu(t) == null) {
+            if (tagRepository.findHashtagByName(t) == null) {
                 Hashtag tag = new Hashtag();
                 tag.setNaziv_hashtaga(t.toLowerCase());
                 kreiraj(tag);
