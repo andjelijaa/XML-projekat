@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "profil")
+@Table(name = "Profil")
 @Data
 public class Profil {
 
@@ -28,7 +28,6 @@ public class Profil {
 
         @Column
         private String prezime;
-
 
         @Column
         private String telefon;
