@@ -18,6 +18,3 @@ public interface ObjavaPodaciRepository extends JpaRepository<ObjavaPodaci, Long
 
     //List<ObjavaPodaci> findByUsername(String username);
 
-
-   // List<ObjavaPodaci> (String lokacija);
-}

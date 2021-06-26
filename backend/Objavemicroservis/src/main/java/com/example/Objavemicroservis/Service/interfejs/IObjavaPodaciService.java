@@ -19,4 +19,9 @@ public interface IObjavaPodaciService {
     ObjavaPodaci getById(Long id);
 
     List<ObjavaPodaci> getJavneObjave();
+
+    List<ObjavaPodaci> pretraziLokaciju(String lokacija);
+
+    List<ObjavaPodaci> pretraziTag(String tag);
+
 }
