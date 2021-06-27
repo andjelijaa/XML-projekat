@@ -49,12 +49,12 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     @Override
     public ObjavaPodaci getById(Long id) {
 
-/*
-        ObjavaPodaci objavaPodaci = objavaPodaciRepository.findById(id);
+
+        ObjavaPodaci objavaPodaci = objavaPodaciRepository.findObjavaPodaciById(id);
         if (objavaPodaci== null)
             return null;
         return objavaPodaci;
-*/ return null;
+
     }
 
     @Override

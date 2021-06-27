@@ -10,4 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Repository
 public interface ObjavaRepository extends JpaRepository<Objava, Long> {
+
+
+
 }

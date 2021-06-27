@@ -16,5 +16,5 @@ public interface LokacijaRepository extends JpaRepository<Lokacija, Long> {
 
     Lokacija findByName(String name);
 
-   // Lokacija findById(Long id);
+    Lokacija findLokacijaById(Long id);
 }
