@@ -9,8 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name="hashtag")
-
+@Table
 public class Hashtag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

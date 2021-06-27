@@ -1,1 +1,0 @@
-INSERT INTO album(id) VALUES(2);

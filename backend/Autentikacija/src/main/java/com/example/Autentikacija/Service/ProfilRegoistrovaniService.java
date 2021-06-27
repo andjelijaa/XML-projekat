@@ -13,6 +13,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
@@ -46,17 +47,17 @@ public class ProfilRegoistrovaniService implements ProfilRegostrovani1Service {
     }
 
     @Override
-    public ProfilRegistrovani register(ProfilRegistrovaniDTO profilRegistrovaniDTO) {
+    public ProfilRegistrovani register(@RequestBody ProfilRegistrovaniDTO profilRegistrovaniDTO) {
         ProfilRegistrovani profilRegistrovani = new ProfilRegistrovani();
         profilRegistrovani.setUsername(profilRegistrovaniDTO.getUsername());
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
-        profilRegistrovani.setUloge(ulogaService.findByName("ROLE_USER"));
-       try{
-           restTemplate.exchange("http://localhost:2222/profil-api/add",
-                   HttpMethod.POST, new HttpEntity<>(profilRegistrovaniDTO, new HttpHeaders()), ResponseEntity.class);
-        }catch (Exception e){
-            throw new BadRequestException("Neuspesna registracija!");
-        }
+        //profilRegistrovani.setUloge(ulogaService.findByName("ROLE_USER"));
+       //try{
+           //restTemplate.exchange("http://localhost:2222/profil-api/add",
+                   //HttpMethod.POST, new HttpEntity<>(profilRegistrovaniDTO, new HttpHeaders()), ResponseEntity.class);
+        //}catch (Exception e){
+            //throw new BadRequestException("Neuspesna registracija!");
+        //}
         return profilRegistrovaniRepository.save(profilRegistrovani);
     }
 

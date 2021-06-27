@@ -20,7 +20,6 @@ import java.util.List;
 @RequestMapping("/slika")
 public class ObjavaPodaciController {
 
-    @Autowired
     private ObjavaPodaciRepository objavaPodaciRepository;
 
     @Autowired

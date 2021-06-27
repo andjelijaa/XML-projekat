@@ -3,7 +3,7 @@ package com.example.Objavemicroservis.Entity;
 
 import javax.persistence.*;
 
-@Table(name="album")
+@Table
 @Entity
 public class Album {
     @Id
