@@ -28,53 +28,6 @@ services:
     depends_on:
       - eureka
 
-
-  Autentikacija:
-    image: autentikacija
-    container_name: autentikacija
-    build:
-      context: ./backend/Autentikacija
-      dockerfile: Dockerfile
-    tty: true
-    restart: on-failure
-    networks:
-      - demo
-    ports:
-      - "7879:7879"
-    environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
-      DATABASE_USERNAME: root
-      DATABASE_PASSWORD: root
-      DATABASE_DOMAIN: mysql
-      DATABASE_SCHEMA: autentikacijabaza?createDatabaseIfNotExist=true&serverTimezone=UTC
-    depends_on:
-      - eureka
-      - mysql
-
-
-
-  Profil-microservis:
-    image: profilmicroservis
-    container_name: profilmicroservis
-    build:
-      context: ./backend/Profilmicroservis
-      dockerfile: Dockerfile
-    tty: true
-    restart: on-failure
-    networks:
-      - demo
-    ports:
-      - "7870:7870"
-    environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
-      DATABASE_USERNAME: root
-      DATABASE_PASSWORD: root
-      DATABASE_DOMAIN: mysql
-      DATABASE_SCHEMA: profilbaza?createDatabaseIfNotExist=true&serverTimezone=UTC
-    depends_on:
-      - eureka
-      - mysql
-
   Objavemicroservis:
     image: objavemicroservis
     container_name: objavemicroservis
@@ -82,7 +35,7 @@ services:
       context: ./backend/Objavemicroservis
       dockerfile: Dockerfile
     tty: true
-    restart: on-failure
+#    restart: on-failure
     networks:
       - demo
     ports:
