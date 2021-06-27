@@ -15,7 +15,6 @@ import java.util.List;
 
 @Service
 public class ObjavaPodaciService implements IObjavaPodaciService {
-
     private ObjavaPodaciRepository objavaPodaciRepository;
 
     private ILokacijaService lokacijaService;
@@ -23,9 +22,6 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     private IHashtagService tagService;
 
     private ObjavaRepository objavaRepository;
-
-
-
 
     @Override
     public List<ObjavaPodaci> getAll() {
@@ -53,12 +49,12 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     @Override
     public ObjavaPodaci getById(Long id) {
 
-
-        ObjavaPodaci objavaPodaci = objavaPodaciRepository.findPostById(id);
+/*
+        ObjavaPodaci objavaPodaci = objavaPodaciRepository.findById(id);
         if (objavaPodaci== null)
             return null;
         return objavaPodaci;
-
+*/ return null;
     }
 
     @Override
@@ -88,12 +84,6 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     }
 
  // dodati pretragu po lokaciji(gore) i tagu,getimagesfile
-    @Override
-    private List<Post> findAll() {
-        List<Post> posts = postRepository.findAll();
-        if (posts.isEmpty())
-            return null;
-        return posts;
-    }
+
 
 }
