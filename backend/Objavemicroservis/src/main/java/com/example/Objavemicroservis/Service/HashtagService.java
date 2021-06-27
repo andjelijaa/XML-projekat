@@ -25,7 +25,7 @@ public class HashtagService implements IHashtagService {
     }
 
     @Override
-    public Hashtag kreiraj(Hashtag tag) {
+    public Hashtag create(Hashtag tag) {
         return tagRepository.save(tag);
     }
 

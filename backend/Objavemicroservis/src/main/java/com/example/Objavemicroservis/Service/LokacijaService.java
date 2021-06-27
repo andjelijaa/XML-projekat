@@ -23,21 +23,21 @@ public class LokacijaService implements ILokacijaService {
     }
 
     @Override
-    public Lokacija kreirajLokaciju(Lokacija lokacija) {
+    public Lokacija create(Lokacija lokacija) {
         Lokacija dbLokacija = new Lokacija();
 
         return dbLokacija;
     }
 
     @Override
-    public Lokacija pronadji_po_ID(Long id) {
+    public Lokacija findById(Long id) {
         //Lokacija lokacija = lokacijaRepository.findById(id);
         //
         return null;
     }
 
     @Override
-    public Lokacija pronadji_po_imenu(String naziv_mesta) {
+    public Lokacija findByName(String naziv_mesta) {
 
           Lokacija lokacija = lokacijaRepository.findByName(naziv_mesta);
 //        if (lokacija == null)

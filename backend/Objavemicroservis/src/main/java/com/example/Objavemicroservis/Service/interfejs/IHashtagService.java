@@ -9,8 +9,7 @@ public interface IHashtagService {
 
     List<Hashtag> getAll();
 
-    Hashtag kreiraj(Hashtag hashtag);
+    Hashtag create(Hashtag hashtag);
 
     List<Hashtag> kreirajHashTag(List<String> tagovi);
 }
-

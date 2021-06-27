@@ -9,10 +9,12 @@ public interface ILokacijaService {
 
     List<Lokacija> getAll();
 
-    Lokacija kreirajLokaciju (Lokacija lokacija);
+    Lokacija create(Lokacija lokacija);
 
-    Lokacija pronadji_po_ID(Long id);
+    Lokacija findById(Long id);
 
-    Lokacija pronadji_po_imenu(String naziv_mesta);
+    Lokacija findByName(String naziv_mesta);
 }
+
+
 

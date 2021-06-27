@@ -13,5 +13,5 @@ public interface ILajkService {
 
     boolean da_li_je_lajkovano(Long id, String username);
 
-    List<Lajk> istorija(String username);
+    List<Lajk> history(String username);
 }

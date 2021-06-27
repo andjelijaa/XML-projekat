@@ -33,7 +33,7 @@ public class LajkController {
     }
 
     @GetMapping("/istorija/{username}")
-    public List<Lajk> istorija(@PathVariable("username")String username){
-        return lajkService.istorija(username);
+    public List<Lajk> history(@PathVariable("username")String username){
+        return lajkService.history(username);
     }
 }
