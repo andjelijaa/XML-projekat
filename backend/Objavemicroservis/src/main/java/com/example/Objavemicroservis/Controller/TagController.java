@@ -21,8 +21,8 @@ public class TagController {
     }
 
     @PostMapping
-    public Hashtag kreiraj(@RequestBody Hashtag tag) {
+    public Hashtag create(@RequestBody Hashtag tag) {
 
-        return tagService.kreiraj(tag);
+        return tagService.create(tag);
     }
 }

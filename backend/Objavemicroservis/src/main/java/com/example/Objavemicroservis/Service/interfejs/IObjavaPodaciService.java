@@ -10,7 +10,7 @@ public interface IObjavaPodaciService {
 
     List<ObjavaPodaci> getAll();
 
-    ObjavaPodaci sacuvaj(ObjavaPodaci objavaPodaci);
+    ObjavaPodaci save(ObjavaPodaci objavaPodaci);
 
     List<ObjavaPodaci> getKorisnikSlike(String username);
 

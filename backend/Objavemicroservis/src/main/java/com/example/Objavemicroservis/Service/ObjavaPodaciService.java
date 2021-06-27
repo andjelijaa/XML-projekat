@@ -34,7 +34,7 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     }
 
     @Override
-    public ObjavaPodaci sacuvaj(ObjavaPodaci objavaPodaci) {
+    public ObjavaPodaci save(ObjavaPodaci objavaPodaci) {
 
         ObjavaPodaci dbObjavaPodaci = new ObjavaPodaci();
         dbObjavaPodaci = objavaPodaciRepository.save(dbObjavaPodaci);
@@ -53,7 +53,12 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     @Override
     public ObjavaPodaci getById(Long id) {
 
-        return null;
+
+        ObjavaPodaci objavaPodaci = objavaPodaciRepository.findPostById(id);
+        if (objavaPodaci== null)
+            return null;
+        return objavaPodaci;
+
     }
 
     @Override
@@ -83,5 +88,12 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     }
 
  // dodati pretragu po lokaciji(gore) i tagu,getimagesfile
+    @Override
+    private List<Post> findAll() {
+        List<Post> posts = postRepository.findAll();
+        if (posts.isEmpty())
+            return null;
+        return posts;
+    }
 
 }

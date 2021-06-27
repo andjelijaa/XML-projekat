@@ -44,7 +44,7 @@ public class LajkService implements ILajkService {
 
 
     @Override
-    public List<Lajk> istorija(String username) {
+    public List<Lajk> history(String username) {
         return lajkRepository.findByUsername(username);
     }
 }
