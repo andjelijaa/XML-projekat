@@ -1,0 +1,1 @@
+insert into album(id) values(10);

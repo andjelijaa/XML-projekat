@@ -31,10 +31,10 @@ public class LokacijaService implements ILokacijaService {
 
     @Override
     public Lokacija findById(Long id) {
-   /*     Lokacija lokacija = lokacijaRepository.findAllById(id);
+        Lokacija lokacija = lokacijaRepository.findLokacijaById(id);
         //
         return lokacija;
-   */ return  null;
+
     }
 
     @Override

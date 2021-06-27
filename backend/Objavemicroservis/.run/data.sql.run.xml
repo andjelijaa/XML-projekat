@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="data.sql" type="DatabaseScript" editBeforeRun="true" singleton="false" nameIsGenerated="true">
-    <script-file value="$PROJECT_DIR$/src/main/resources/data.sql" />
+  <configuration default="false" name="import.sql" type="DatabaseScript" editBeforeRun="true" singleton="false" nameIsGenerated="true">
+    <script-file value="$PROJECT_DIR$/src/main/resources/import.sql" />
     <script-mode>FILE</script-mode>
     <data-source id="f11f2196-80f4-4d2f-8130-820039f87702" namespace="schema/&quot;autentikacijabaza&quot;" />
     <data-source id="f11f2196-80f4-4d2f-8130-820039f87702" namespace="schema/&quot;objavabaza&quot;" />

@@ -38,7 +38,7 @@ public class ObjavaPodaciController {
 
     @GetMapping("/profil/{username}")
     public ResponseEntity getImagesByUsername(@PathVariable("username") String username) {
-        List<ObjavaPodaci> userPosts = objavaPodaciRepository.findByUsername(username);
+   //     List<ObjavaPodaci> userPosts = objavaPodaciRepository.findObjavaPodaciByUsername(username);
   //     dodati
       return  null;
     }
