@@ -13,7 +13,6 @@ import java.util.Optional;
 public class LokacijaService implements ILokacijaService {
 
 
-    @Autowired
     private LokacijaRepository lokacijaRepository;
 
     @Override

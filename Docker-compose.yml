@@ -52,7 +52,8 @@ services:
       - mysql
 
 
-  Profilmicroservis:
+
+  Profil-microservis:
     image: profilmicroservis
     container_name: profilmicroservis
     build:
@@ -73,7 +74,6 @@ services:
     depends_on:
       - eureka
       - mysql
-
 
   mysql:
     image: mysql:8.0.19

@@ -14,7 +14,6 @@ public class KomentarService implements IKomentarService {
 
 
 
-     @Autowired
      private KomentarRepository komentarRepository;
 
     @Override
