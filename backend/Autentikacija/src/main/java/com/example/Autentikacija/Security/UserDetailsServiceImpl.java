@@ -1,7 +1,7 @@
 package com.example.Autentikacija.Security;
 
 import com.example.Autentikacija.Exception.NotFoundException;
-import com.example.Autentikacija.Service.ProfilRegostrovani1Service;
+import com.example.Autentikacija.Service.ProfilRegistrovani1Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private ProfilRegostrovani1Service profilRegostrovani1Service;
+    private ProfilRegistrovani1Service profilRegostrovani1Service;
 
 
     @Override

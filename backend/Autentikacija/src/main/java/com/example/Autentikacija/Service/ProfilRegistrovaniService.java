@@ -7,19 +7,16 @@ import com.example.Autentikacija.Exception.BadRequestException;
 import com.example.Autentikacija.Exception.NotFoundException;
 import com.example.Autentikacija.Repository.ProfilRegistrovaniRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 @Service
-public class ProfilRegoistrovaniService implements ProfilRegostrovani1Service {
+public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -33,7 +30,7 @@ public class ProfilRegoistrovaniService implements ProfilRegostrovani1Service {
     private final RestTemplate restTemplate;
 
     @Autowired
-    public ProfilRegoistrovaniService() {
+    public ProfilRegistrovaniService() {
         this.restTemplate = new RestTemplate();
     }
 
@@ -47,7 +44,7 @@ public class ProfilRegoistrovaniService implements ProfilRegostrovani1Service {
     }
 
     @Override
-    public ProfilRegistrovani register(@RequestBody ProfilRegistrovaniDTO profilRegistrovaniDTO) {
+    public ProfilRegistrovani register(ProfilRegistrovaniDTO profilRegistrovaniDTO) {
         ProfilRegistrovani profilRegistrovani = new ProfilRegistrovani();
         profilRegistrovani.setUsername(profilRegistrovaniDTO.getUsername());
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
