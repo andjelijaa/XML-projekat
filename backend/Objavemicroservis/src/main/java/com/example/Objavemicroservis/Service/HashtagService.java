@@ -33,9 +33,9 @@ public class HashtagService implements IHashtagService {
     public List<Hashtag> kreirajHashTag(List<String> tags) {
         List<Hashtag> tagDb = new ArrayList<>();
         for (String t : tags) {
-            if (tagRepository.findByName(t) == null) {
+            if (tagRepository.findBynazivhashtaga(t) == null) {
                 Hashtag hashtag = new Hashtag();
-                hashtag.setNaziv_hashtaga(t.toLowerCase());
+                hashtag.setNazivhashtaga(t.toLowerCase());
                 create(hashtag);
                 tagDb.add(hashtag);
             }

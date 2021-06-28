@@ -16,5 +16,5 @@ public interface HashtagRepository extends JpaRepository<Hashtag, Long> {
 
     List<Hashtag> findAll();
 
-    Hashtag findByName(String naziv_hashtaga);
+    Hashtag findBynazivhashtaga(String nazivhashtaga);
 }

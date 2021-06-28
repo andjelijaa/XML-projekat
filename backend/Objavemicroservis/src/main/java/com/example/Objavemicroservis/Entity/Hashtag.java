@@ -16,5 +16,5 @@ public class Hashtag {
     private Long id;
 
     @Column(nullable = false, unique = true, length = 64)
-    private String naziv_hashtaga;
+    private String nazivhashtaga;
 }
