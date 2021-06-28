@@ -1,19 +1,6 @@
 version: "3.8"
 
-  proxy:
-    image: proxy
-    container_name: proxy
-    build:
-      context: ./backend/proxy
-      dockerfile: Dockerfile
-    tty: true
-    networks:
-      - demo
-    ports:
-      - "2222:2222"
-
-
-
+services:
   Autentikacija:
     image: autentikacija
     container_name: autentikacija
