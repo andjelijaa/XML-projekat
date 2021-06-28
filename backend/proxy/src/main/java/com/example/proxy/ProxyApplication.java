@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
 		org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
 		org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration.class })
 
-@EnableEurekaClient
 @EnableZuulProxy
 @Configuration
 public class ProxyApplication {

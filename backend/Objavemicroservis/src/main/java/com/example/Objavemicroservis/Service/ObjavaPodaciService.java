@@ -69,12 +69,13 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
 
     }
 
+    /* ovo treba da stoji u objava repo a ne objava podaci repo !
     @Override
     public List<ObjavaPodaci> pretraziLokaciju(String lokacija) {
-        List<ObjavaPodaci> objavaPodacii = objavaPodaciRepository.pretraziLokaciju(lokacija);
+        List<ObjavaPodaci> objavaPodacii = objavaPodaciRepository.findByLokacija(lokacija);
         return objavaPodacii;
-        //TODO
-    }
+        //
+    } */
 
     @Override
     public List<ObjavaPodaci> pretraziTag(String tag) {
@@ -90,6 +91,10 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
         return null;
     }
 
+    @Override
+    public List<ObjavaPodaci> pretraziLokaciju(String lokacija) {
+        return null;
+    }
 
 
 }
