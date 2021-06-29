@@ -21,11 +21,13 @@ public class LajkController {
 
 
 
-// mozes da vidis sta ovde ide umesto getimagesbyusername
+//TODO
     @GetMapping("/{id}")
     public Integer getImagesByUsername(@PathVariable("id") Long id) {
         return lajkService.prebrojLajkove(id);
     }
+
+
 
     @GetMapping("/post/{id}/{username}")
     public boolean da_li_je_lajkovano(@PathVariable("id") Long id, @PathVariable("username") String username) {

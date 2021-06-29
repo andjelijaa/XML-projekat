@@ -15,11 +15,13 @@ public class LokacijaController {
 
     @GetMapping
     public List<Lokacija> getAll() {
+
         return lokacijaService.getAll();
     }
 
     @PostMapping
     public Lokacija create(@RequestBody Lokacija lokacija) {
+
         return lokacijaService.create(lokacija);
     }
 }

@@ -20,5 +20,4 @@ public interface ObjavaPodaciRepository extends JpaRepository<ObjavaPodaci, Long
     ObjavaPodaci findObjavaPodaciById(Long id);
 
 
-
 }

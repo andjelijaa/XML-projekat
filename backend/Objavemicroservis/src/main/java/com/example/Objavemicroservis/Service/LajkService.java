@@ -22,7 +22,30 @@ public class LajkService implements ILajkService {
     @Override
     public Lajk kreirajLajk(LajkDTO lajkDTO) {
         ObjavaPodaci objavaPodaci = objavaPodaciService.getById(lajkDTO.getObjavaID());
-        return null;
+        Lajk noviLajk = new Lajk();
+        if (objavaPodaci.getLajkovi().size() > 0) {
+            for (Lajk lajk : objavaPodaci.getLajkovi()) {
+                if (lajk.getUsername().equals(lajkDTO.getUsername())) {
+                    if (lajkDTO.isLajkovano() == lajk.isLajkovano()) {
+                        objavaPodaci.getLajkovi().remove(lajk);
+                        objavaPodaciService.save(objavaPodaci);
+                        lajkRepository.delete(lajk);
+                        return null;
+                    } else if (lajkDTO.isLajkovano() != lajk.isLajkovano()) {
+                        lajk.setLajkovano(lajkDTO.isLajkovano());
+                        lajkRepository.save(lajk);
+                        return null;
+                    }
+                }
+            }
+        }
+
+        noviLajk.setLajkovano(lajkDTO.isLajkovano());
+        noviLajk.setUsername(lajkDTO.getUsername());
+        lajkRepository.save(noviLajk);
+        objavaPodaci.getLajkovi().add(noviLajk);
+        objavaPodaciService.save(objavaPodaci);
+        return noviLajk;
     }
 
 
@@ -45,6 +68,7 @@ public class LajkService implements ILajkService {
 
     @Override
     public List<Lajk> history(String username) {
+
         return lajkRepository.findLajkByUsername(username);
     }
 }

@@ -19,30 +19,28 @@ public class LokacijaService implements ILokacijaService {
     public List<Lokacija> getAll() {
         List<Lokacija> lokacije = lokacijaRepository.findAll();
         return lokacije;
-        //
     }
 
     @Override
     public Lokacija create(Lokacija lokacija) {
-        Lokacija dbLokacija = new Lokacija();
-
-        return dbLokacija;
+        Lokacija novaLokacija = new Lokacija();
+        return novaLokacija;
     }
 
     @Override
     public Lokacija findById(Long id) {
         Lokacija lokacija = lokacijaRepository.findLokacijaById(id);
-        //
+        if(lokacija == null)
+            return null;
         return lokacija;
-
     }
 
     @Override
     public Lokacija findByName(String naziv_mesta) {
 
           Lokacija lokacija = lokacijaRepository.findByName(naziv_mesta);
-//        if (lokacija == null)
-
-        return lokacija;
+          if(lokacija == null)
+              return null;
+          return lokacija;
     }
 }
