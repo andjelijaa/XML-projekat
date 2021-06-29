@@ -1,11 +1,11 @@
 package com.example.Autentikacija.Service;
 
+import com.example.Autentikacija.Conection.ProfilKonekcija;
 import com.example.Autentikacija.DTO.ProfilRegistrovaniDTO;
 import com.example.Autentikacija.Entity.ProfilRegistrovani;
 
 import com.example.Autentikacija.Exception.BadRequestException;
 import com.example.Autentikacija.Exception.NotFoundException;
-import com.example.Autentikacija.ProfilKonekcija;
 import com.example.Autentikacija.Repository.ProfilRegistrovaniRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -43,7 +43,6 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
         ProfilRegistrovani profilRegistrovani = profilRegistrovaniRepository.findByUsername(username);
         if (profilRegistrovani == null) {
             throw new NotFoundException("Username nije pronadjen " );
-
         }
         return profilRegistrovani;
     }
@@ -53,7 +52,7 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
         ProfilRegistrovani profilRegistrovani = new ProfilRegistrovani();
         profilRegistrovani.setUsername(profilRegistrovaniDTO.getUsername());
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
-        //profilRegistrovani.setUloge(ulo);
+        profilRegistrovani.setUloge(ulogaService.findByName("ROLE_korisnik"));
         try{
             profilKonekcija.registerUser(profilRegistrovaniDTO);
         }catch (Exception e){
