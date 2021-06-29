@@ -81,38 +81,9 @@
 			<artifactId>jaxb-runtime</artifactId>
 		</dependency>
 
-<<<<<<< HEAD
-	<!--	<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<version>2.2.2.RELEASE</version>
-		</dependency>
-=======
->>>>>>> 48b7cd29d0b69b71f95920fd26259a903baebc25
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-		</dependency>
--->
 
 	</dependencies>
 
-<<<<<<< HEAD
-
-=======
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>2020.0.3</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
->>>>>>> 48b7cd29d0b69b71f95920fd26259a903baebc25
 
 	<build>
 		<plugins>
