@@ -1,1 +1,1 @@
-insert into album(id) values(115);
+

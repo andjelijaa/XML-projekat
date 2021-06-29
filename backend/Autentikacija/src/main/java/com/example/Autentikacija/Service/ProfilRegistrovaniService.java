@@ -5,6 +5,7 @@ import com.example.Autentikacija.Entity.ProfilRegistrovani;
 
 import com.example.Autentikacija.Exception.BadRequestException;
 import com.example.Autentikacija.Exception.NotFoundException;
+import com.example.Autentikacija.ProfilKonekcija;
 import com.example.Autentikacija.Repository.ProfilRegistrovaniRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,10 +25,14 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
     @Autowired
     private ProfilRegistrovaniRepository profilRegistrovaniRepository;
 
+
     @Autowired
     private  Uloga1Service ulogaService;
 
     private final RestTemplate restTemplate;
+
+    @Autowired
+    private ProfilKonekcija profilKonekcija;
 
     @Autowired
     public ProfilRegistrovaniService() {
@@ -48,13 +53,12 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
         ProfilRegistrovani profilRegistrovani = new ProfilRegistrovani();
         profilRegistrovani.setUsername(profilRegistrovaniDTO.getUsername());
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
-        //profilRegistrovani.setUloge(ulogaService.findByName("ROLE_USER"));
-       //try{
-           //restTemplate.exchange("http://localhost:2222/profil-api/add",
-                   //HttpMethod.POST, new HttpEntity<>(profilRegistrovaniDTO, new HttpHeaders()), ResponseEntity.class);
-        //}catch (Exception e){
-            //throw new BadRequestException("Neuspesna registracija!");
-        //}
+        //profilRegistrovani.setUloge(ulo);
+        try{
+            profilKonekcija.registerUser(profilRegistrovaniDTO);
+        }catch (Exception e){
+            throw new BadRequestException("Neuspesna registracija!");
+        }
         return profilRegistrovaniRepository.save(profilRegistrovani);
     }
 

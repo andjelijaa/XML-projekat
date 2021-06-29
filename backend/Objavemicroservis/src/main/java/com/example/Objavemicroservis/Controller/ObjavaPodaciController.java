@@ -69,4 +69,10 @@ public class ObjavaPodaciController {
     public ResponseEntity pretragaLokacija(@RequestParam String lokacija) {
         return new ResponseEntity(objavaPodaciService.pretraziLokaciju(lokacija), HttpStatus.OK);
     }
+
+    @GetMapping("/pretragausername")
+    public ResponseEntity pretragaUsername(@RequestParam String username) {
+        //return new ResponseEntity(objavaPodaciService.(username), HttpStatus.OK);
+        return null;
+    }
 }

@@ -10,8 +10,9 @@ function search(){
                     <option value="tagovi">Tagovi</option>
                 </select>
 
-                <form>
-                    <input className="text-center mt-28" placeholder="pretrazi" ></input>
+                <form className="flex flex-col gap-16">
+                    <input className="text-center mt-28 w-full" placeholder="unesite pretragu" ></input>
+                    <button className="text-center text-3xl" type="submit">Submit</button>
                 </form>
             </div>
         </main>

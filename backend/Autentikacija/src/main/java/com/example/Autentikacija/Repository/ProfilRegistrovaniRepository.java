@@ -9,6 +9,4 @@ public interface ProfilRegistrovaniRepository extends JpaRepository<ProfilRegist
        ProfilRegistrovani findByUsername(String username);
        ProfilRegistrovani save(ProfilRegistrovani profilRegistrovani);
 
-
-
 }
