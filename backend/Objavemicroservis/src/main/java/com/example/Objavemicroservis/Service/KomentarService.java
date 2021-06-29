@@ -18,7 +18,7 @@ public class KomentarService implements IKomentarService {
 
     @Override
     public List<Komentar> getAllByPost(Long id) {
-        List<Komentar> komentari=komentarRepository.findAll();
+        List<Komentar> komentari = komentarRepository.findAll();
         return komentari;
     }
 

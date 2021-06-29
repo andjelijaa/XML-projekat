@@ -2,6 +2,9 @@ package com.example.Objavemicroservis.Service;
 
 
 import com.example.Objavemicroservis.DTO.ObjavaDTO;
+import com.example.Objavemicroservis.DTO.SlikaDTO;
+import com.example.Objavemicroservis.Entity.Lokacija;
+import com.example.Objavemicroservis.Entity.Objava;
 import com.example.Objavemicroservis.Entity.ObjavaPodaci;
 import com.example.Objavemicroservis.Repository.ObjavaPodaciRepository;
 import com.example.Objavemicroservis.Repository.ObjavaRepository;
@@ -32,24 +35,33 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     @Override
     public ObjavaPodaci save(ObjavaPodaci objavaPodaci) {
 
-        ObjavaPodaci dbObjavaPodaci = new ObjavaPodaci();
-        dbObjavaPodaci = objavaPodaciRepository.save(dbObjavaPodaci);
+        ObjavaPodaci novaObjavaPodaci = new ObjavaPodaci();
+        novaObjavaPodaci = objavaPodaciRepository.save(novaObjavaPodaci);
 
-        return dbObjavaPodaci;
+        return novaObjavaPodaci;
     }
-
 
 
     @Override
     public ObjavaPodaci sacuvajSlikaInfo(ObjavaDTO slikaDto) {
-
-        return null;
+        ObjavaPodaci objavaPodaci = new ObjavaPodaci();
+        Objava objava = new Objava();
+        objava.setNazivFajla(slikaDto.getNazivFajla());
+        if (slikaDto.getNazivFajla().contains(".mp4")) {
+            objava.setDa_li_je_slika(false);
+        }
+        objava.setUsername(slikaDto.getUsername());
+        objava.setOpis(slikaDto.getOpis());
+        Lokacija lokacija = lokacijaService.findByName(slikaDto.getNazivLokacije());
+        objava.setLokacija(lokacija);
+        objava.setHashtagovi(tagService.kreirajHashTag(slikaDto.getTagovi()));
+        objavaRepository.save(objava);
+        objavaPodaci.setObjava(objava);
+        return save(objavaPodaci);
     }
 
     @Override
     public ObjavaPodaci getById(Long id) {
-
-
         ObjavaPodaci objavaPodaci = objavaPodaciRepository.findObjavaPodaciById(id);
         if (objavaPodaci== null)
             return null;
@@ -57,33 +69,32 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
 
     }
 
+    /* ovo treba da stoji u objava repo a ne objava podaci repo !
     @Override
     public List<ObjavaPodaci> pretraziLokaciju(String lokacija) {
-
-        return null;
-    }
+        List<ObjavaPodaci> objavaPodacii = objavaPodaciRepository.findByLokacija(lokacija);
+        return objavaPodacii;
+        //
+    } */
 
     @Override
     public List<ObjavaPodaci> pretraziTag(String tag) {
-
+        //TODO
         return null;
     }
 
     @Override
     public List<ObjavaPodaci> getJavneObjave() {
-
+//        List<ObjavaPodaci> objavaPodacii = findAll();
+//        return filterPublicPostByUsernames(usernames, posts);
+        //TODO
         return null;
     }
 
     @Override
-    public List<ObjavaPodaci> getKorisnikSlike(String username) {
-        //List<ObjavaPodaci> objavaPodaci = objavaPodaciRepository.findByUsername(username);
-
-        //return objavaPodaci;
+    public List<ObjavaPodaci> pretraziLokaciju(String lokacija) {
         return null;
     }
-
- // dodati pretragu po lokaciji(gore) i tagu,getimagesfile
 
 
 }

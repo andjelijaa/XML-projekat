@@ -1,33 +1,17 @@
 version: "3.8"
 
 services:
-  eureka:
-    image: eureka
-    container_name: eureka
-    build: ./backend/eureka
-
-    tty: true
-    networks:
-      - demo
-    ports:
-      - "1111:1111"
-
   proxy:
     image: proxy
     container_name: proxy
     build:
       context: ./backend/proxy
       dockerfile: Dockerfile
-    environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
     tty: true
     networks:
       - demo
     ports:
       - "2222:2222"
-    depends_on:
-      - eureka
-
 
   Autentikacija:
     image: autentikacija
@@ -42,13 +26,11 @@ services:
     ports:
       - "7879:7879"
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: root
       DATABASE_DOMAIN: mysql
       DATABASE_SCHEMA: autentikacijabaza?createDatabaseIfNotExist=true&serverTimezone=UTC
     depends_on:
-      - eureka
       - mysql
 
 
@@ -66,13 +48,11 @@ services:
     ports:
       - "7870:7870"
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: root
       DATABASE_DOMAIN: mysql
       DATABASE_SCHEMA: profilbaza?createDatabaseIfNotExist=true&serverTimezone=UTC
     depends_on:
-      - eureka
       - mysql
 
   Objavemicroservis:
@@ -88,13 +68,11 @@ services:
     ports:
       - "7876:7876"
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:1111/eureka/
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: root
       DATABASE_DOMAIN: mysql
       DATABASE_SCHEMA: objavabaza?createDatabaseIfNotExist=true&serverTimezone=UTC
     depends_on:
-      - eureka
       - mysql
 
 
