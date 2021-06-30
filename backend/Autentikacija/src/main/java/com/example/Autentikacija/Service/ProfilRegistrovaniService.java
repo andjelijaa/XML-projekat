@@ -53,11 +53,11 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
         profilRegistrovani.setUsername(profilRegistrovaniDTO.getUsername());
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
         profilRegistrovani.setUloge(ulogaService.findByName("ROLE_korisnik"));
-        try{
+        /*try{
             profilKonekcija.registerUser(profilRegistrovaniDTO);
         }catch (Exception e){
             throw new BadRequestException("Neuspesna registracija!");
-        }
+        }*/
         return profilRegistrovaniRepository.save(profilRegistrovani);
     }
 
