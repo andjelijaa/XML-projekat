@@ -1,14 +1,14 @@
 import axios from "axios";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
 
 function Login(){
 
-
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
-    let history = useHistory();
+    const [redirect, setRedirect] = useState(false);
+    
+    let history = new useHistory();
 
     const userData = JSON.stringify({
         "password" : password,
@@ -31,12 +31,17 @@ function Login(){
           
         }).then(res => {
             if(res.status === 200){
-              history.push("/");
+              setRedirect(true);
             }}
         )
      
       }
 
+      useEffect(() => {
+        if(redirect === true){
+          history.push("/");
+        }
+      },[redirect]);
 
     return(
         <main className="flex w-screen h-screen justify-center items-center">
@@ -46,7 +51,7 @@ function Login(){
                     <label htmlFor="username">Korisnicko ime : </label>
                     <input onChange={handleUsername} className="border border-12 shadow-2xl my-3" name="username" type="text"></input>
                     <label htmlFor="password">Lozinka : </label>
-                    <input onChange={handlePassword} className="border border-12 shadow-2xl my-3" name="password" type="text"></input>    
+                    <input type="password" onChange={handlePassword} className="border border-12 shadow-2xl my-3" name="password" ></input>    
                     <button onClick={handleSubmit} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
              </form>
         </main>

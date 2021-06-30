@@ -50,7 +50,11 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
     @Override
     public ProfilRegistrovani register(ProfilRegistrovaniDTO profilRegistrovaniDTO) {
         ProfilRegistrovani profilRegistrovani = new ProfilRegistrovani();
-        profilRegistrovani.setUsername(profilRegistrovaniDTO.getUsername());
+        if(profilRegistrovaniRepository.findByUsername(profilRegistrovaniDTO.getUsername()) == null) {
+            profilRegistrovani.setUsername(profilRegistrovaniDTO.getUsername());
+        } else{
+            throw new BadRequestException("username vec postji");
+        }
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
         //profilRegistrovani.setUloge(ulogaService.findByName("ROLE_korisnik"));
         /*try{

@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import { useHistory } from 'react-router-dom';
-import Popup from 'reactjs-popup';
 
 function Registracija(){
 
@@ -13,7 +11,6 @@ function Registracija(){
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
 
-    let history = useHistory();
 
     const userData = JSON.stringify({
       "ime" : ime,
@@ -51,14 +48,11 @@ function Registracija(){
         
      }).then(res => {
         if(res.status === 200){
-          history.push("/");
+          window.location.href = "http://localhost:3000";
+          setPassword("");
         }
-     }).catch(error => {
-       history.push("/registracija");
-     })
-
-
-    }
+    })
+  }
 
     
 
