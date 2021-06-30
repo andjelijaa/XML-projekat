@@ -52,7 +52,7 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
         ProfilRegistrovani profilRegistrovani = new ProfilRegistrovani();
         profilRegistrovani.setUsername(profilRegistrovaniDTO.getUsername());
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
-        profilRegistrovani.setUloge(ulogaService.findByName("ROLE_korisnik"));
+        //profilRegistrovani.setUloge(ulogaService.findByName("ROLE_korisnik"));
         /*try{
             profilKonekcija.registerUser(profilRegistrovaniDTO);
         }catch (Exception e){

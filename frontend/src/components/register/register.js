@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
-
+import Popup from 'reactjs-popup';
 
 function Registracija(){
 
@@ -49,10 +49,15 @@ function Registracija(){
            'content-type': 'application/json',
         },
         
+     }).then(res => {
+        if(res.status === 200){
+          history.push("/");
+        }
+     }).catch(error => {
+       history.push("/registracija");
      })
 
-      history.push("/login");
-      
+
     }
 
     
