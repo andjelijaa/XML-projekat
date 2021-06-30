@@ -1,17 +1,27 @@
 import axios from "axios";
 import { useState } from "react";
-
+import { useHistory } from 'react-router-dom';
 
 
 function Registracija(){
 
     
-
+ 
     const [ime, setIme] = useState("");
     const [prezime, setPrezime] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
+
+    let history = useHistory();
+
+    const userData = JSON.stringify({
+      "ime" : ime,
+      "prezime" : prezime,
+      "email" : email,
+      "password" : password,
+      "username" : username
+    })
 
     const handleIme = (e) => {
       setIme(e.target.value);
@@ -34,18 +44,18 @@ function Registracija(){
     }
 
     function handleSubmit(){
-      const userData = {
-        "ime" : ime,
-        "prezime" : prezime,
-        "email" : email,
-        "password" : password,
-        "username" : username
-      }
+      axios.post('http://localhost:7879/profilRegistrovanog/add', userData, {
+        headers: {
+           'content-type': 'application/json',
+        },
+        
+     })
 
-      axios.post("localhost:7879/profilRegistrovanog/add", userData)
-      .then(res => alert(res.data))
-
+      history.push("/login");
+      
     }
+
+    
 
     return(
         <main className="flex w-screen h-screen justify-center items-center">
