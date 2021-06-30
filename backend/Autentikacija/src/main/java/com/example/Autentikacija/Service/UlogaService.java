@@ -15,9 +15,9 @@ public class UlogaService implements  Uloga1Service {
 
     @Override
     public List<Uloga> findById(Long id) {
-        Uloga uloga = uloga1Repository.getOne(id);
+        //Uloga uloga = uloga1Repository.findById(id);
         List<Uloga> uloge = new ArrayList<>();
-        uloge.add(uloga);
+        //uloge.add(uloga);
         return uloge;
     }
 
