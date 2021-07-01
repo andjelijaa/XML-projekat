@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 function Login(){
 
@@ -31,8 +32,11 @@ function Login(){
           
         }).then(res => {
             if(res.status === 200){
+              toast.info("you have loged in !");
               setRedirect(true);
-            }}
+              } else {
+                toast.info("wrong username or pass");
+              }}
         )
      
       }
@@ -41,7 +45,7 @@ function Login(){
         if(redirect === true){
           history.push("/");
         }
-      },[redirect]);
+      });
 
     return(
         <main className="flex w-screen h-screen justify-center items-center">
@@ -53,6 +57,7 @@ function Login(){
                     <label htmlFor="password">Lozinka : </label>
                     <input type="password" onChange={handlePassword} className="border border-12 shadow-2xl my-3" name="password" ></input>    
                     <button onClick={handleSubmit} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
+                    <ToastContainer></ToastContainer>
              </form>
         </main>
     )

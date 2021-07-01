@@ -53,7 +53,7 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
         if(profilRegistrovaniRepository.findByUsername(profilRegistrovaniDTO.getUsername()) == null) {
             profilRegistrovani.setUsername(profilRegistrovaniDTO.getUsername());
         } else{
-            throw new BadRequestException("username vec postji");
+            throw new BadRequestException("username vec postoji");
         }
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
         //profilRegistrovani.setUloge(ulogaService.findByName("ROLE_korisnik"));
