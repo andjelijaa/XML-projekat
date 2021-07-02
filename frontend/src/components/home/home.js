@@ -20,6 +20,9 @@ function Home(){
                         <Link to="/pretrage" className="mx-24">
                             Pretrage <i class="fa fa-search"></i>
                         </Link>
+                        <Link to="/profil" className="mx-24">
+                            Profil <i class="fa fa-search"></i>
+                        </Link>
                     </div>
                  
                     <div>
