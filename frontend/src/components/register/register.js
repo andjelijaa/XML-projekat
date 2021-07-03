@@ -40,6 +40,13 @@ function Registracija(){
       setPassword(e.target.value);
     }
 
+    const handleRequest = (e) => {
+      e.preventDefault();
+      handleSubmit()
+      setRedirect(true);
+      return window.location.replace("http://localhost:3000/login");
+    }
+
     function handleSubmit(){
       axios.post('http://localhost:7879/profilRegistrovanog/add', userData, {
         headers: {
@@ -47,8 +54,7 @@ function Registracija(){
         },
         }).then(res => {
             if(res.status === 200){
-              console.log("Uspesna registracija");
-              setRedirect(true);
+              console.log("Uspesna registracija");              
             }
     })
   }
@@ -70,7 +76,7 @@ function Registracija(){
                     <input onChange={handleEmail} autoComplete="" className="border border-12 shadow-2xl my-2" name="email" type="email"></input>
                     <label htmlFor="password">Lozinka : </label>
                     <input onChange={handlePassword} autoComplete="" className="border border-12 shadow-2xl my-2" name="password" type="password"></input>
-                    <button onClick={handleSubmit} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
+                    <button onClick={handleRequest} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
              </form>
         </main>
     )
