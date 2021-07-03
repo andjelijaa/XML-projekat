@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
 
 function Login(){
 
@@ -8,7 +7,6 @@ function Login(){
     const [password, setPassword] = useState("");
     const [redirect, setRedirect] = useState(false);
     
-    let history = new useHistory();
 
     const userData = JSON.stringify({
         "password" : password,
@@ -31,21 +29,18 @@ function Login(){
           
         }).then(res => {
             if(res.status === 200){
+              localStorage.setItem("token", res.data);
               setRedirect(true);
-            } else{
-
-            }}
+            }
+          }
         )
      
       }
 
-      useEffect(() => {
-        if(redirect === true){
-          history.push("/");
-        }
-      });
-
-    return(
+    
+    if(redirect === true) { return window.location.replace("http://localhost:3000/profilRouter")}
+    else{
+     return(
         <main className="flex w-screen h-screen justify-center items-center">
             <div className="background w-screen h-screen"></div>
             <form className="text-2xl font-bold flex flex-col border border-blue-900 shadown-2xl p-10 text-center">
@@ -58,6 +53,7 @@ function Login(){
              </form>
         </main>
     )
+  }
 }
 
 export default Login;

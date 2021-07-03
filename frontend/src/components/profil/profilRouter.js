@@ -8,7 +8,11 @@ import Profil from "./profil";
 
 
 
-function profilRouter(){
+function ProfilRouter(){
+
+
+    
+
     return(
         <main>
             <BrowserRouter>
@@ -25,4 +29,4 @@ function profilRouter(){
     )
 }
 
-export default profilRouter;
+export default ProfilRouter;

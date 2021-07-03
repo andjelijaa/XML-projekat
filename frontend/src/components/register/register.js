@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import { useHistory} from 'react-router-dom';
-import {useEffect} from 'react';
 
 
 function Registracija(){
@@ -12,9 +10,7 @@ function Registracija(){
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
     const [redirect, setRedirect] = useState(false);
-    const [success, setSuccess] = useState(false);
 
-    let history = new useHistory();
 
     const userData = JSON.stringify({
       "ime" : ime,
@@ -49,50 +45,36 @@ function Registracija(){
         headers: {
            'content-type': 'application/json',
         },
-        
-     }).then(res => {
-        if(res.status === 200){
-          console.log("react je retardiran i radi redirekciju samo ako ovde stoji console log.");
-          setSuccess(true);
-          setRedirect(true);
-          
-        }
+        }).then(res => {
+            if(res.status === 200){
+              console.log("Uspesna registracija");
+              setRedirect(true);
+            }
     })
   }
 
-  
-  useEffect(() => {
-    if(redirect === true){
-      history.push("/login");
-      window.location.reload();
-
-    }
-  });
-
-    
-
+  if(redirect === true) { return window.location.replace("http://localhost:3000/login")}
+  else{
     return(
         <main className="flex w-screen h-screen justify-center items-center">
             <div className="background w-screen h-screen"></div>
             <form className="text-2xl font-bold flex flex-col border border-blue-900 shadown-2xl p-10 text-center">
-                    <div className={success ? "visible bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" : "hidden"} role="alert">
-                      Registracija uspesna !
-                    </div>
                     <h1 className="font-mono text-3xl mb-16">Registracija</h1>
                     <label htmlFor="ime">Ime : </label>
-                    <input onChange={handleIme} className="border border-12 shadow-2xl my-2" name="ime" type="text"></input>
+                    <input onChange={handleIme} autoComplete="" className="border border-12 shadow-2xl my-2" name="ime" type="text"></input>
                     <label htmlFor="prezime">Prezime : </label>
-                    <input onChange={handlePrezime} className="border border-12 shadow-2xl my-2" name="prezime" type="text"></input>
+                    <input onChange={handlePrezime} autoComplete="" className="border border-12 shadow-2xl my-2" name="prezime" type="text"></input>
                     <label htmlFor="username">Korisnicko ime : </label>
-                    <input onChange={handleUsername} className="border border-12 shadow-2xl my-2" name="username" type="text"></input>
+                    <input onChange={handleUsername} autoComplete="" className="border border-12 shadow-2xl my-2" name="username" type="text"></input>
                     <label htmlFor="email">Email : </label>
-                    <input onChange={handleEmail} className="border border-12 shadow-2xl my-2" name="email" type="email"></input>
+                    <input onChange={handleEmail} autoComplete="" className="border border-12 shadow-2xl my-2" name="email" type="email"></input>
                     <label htmlFor="password">Lozinka : </label>
-                    <input onChange={handlePassword} className="border border-12 shadow-2xl my-2" name="password" type="password"></input>
+                    <input onChange={handlePassword} autoComplete="" className="border border-12 shadow-2xl my-2" name="password" type="password"></input>
                     <button onClick={handleSubmit} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
              </form>
         </main>
     )
+  }
 }
 
 export default Registracija;
