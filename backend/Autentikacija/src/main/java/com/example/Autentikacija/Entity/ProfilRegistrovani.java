@@ -4,7 +4,7 @@ package com.example.Autentikacija.Entity;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import com.example.Autentikacija.Entity.Uloga;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -22,13 +22,8 @@ public class ProfilRegistrovani implements UserDetails {
     @Column
     private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "UlogaProfila",
-            joinColumns = @JoinColumn(name = "id_profila", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "id_uloge", referencedColumnName = "id"))
-
-    private Collection<Uloga> uloge;
-
+    @Column
+    private String uloga;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -54,4 +49,6 @@ public class ProfilRegistrovani implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
 }

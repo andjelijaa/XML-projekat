@@ -5,7 +5,7 @@ import Azuriranje from "../azuriranje/azuriranje";
 import Search from "../search/search";
 import Vidisvojeslike from "../vidisvojeslike/vidisvojeslike";
 import Profil from "./profil";
-
+import Login from "../login/login";
 
 
 function ProfilRouter(){
@@ -23,6 +23,7 @@ function ProfilRouter(){
                     <Route component={Profil} exact path="/profilRouter/profil"></Route>
                     <Route component={ObjaviSliku} exact path="/profilRouter/objavisliku"></Route>
                     <Route component={Search} exact path="/profilRouter/Profilsearch"></Route>
+                    <Route component={Login} exact path="/login"></Route>
                 </Switch>
             </BrowserRouter>
         </main>

@@ -21,6 +21,13 @@ function Login(){
         setPassword(e.target.value);
     }
 
+    const handleRequest = (e) => {
+      e.preventDefault();
+      handleSubmit()
+      setRedirect(true);
+      return window.location.replace("http://localhost:3000/profilRouter");
+    }
+
     function handleSubmit(){
         axios.post('http://localhost:7879/profilRegistrovanog/login', userData, {
           headers: {
@@ -31,6 +38,7 @@ function Login(){
             if(res.status === 200){
               localStorage.setItem("token", res.data);
               setRedirect(true);
+              window.location.reload();
             }
           }
         )
@@ -49,8 +57,9 @@ function Login(){
                     <input onChange={handleUsername} className="border border-12 shadow-2xl my-3" name="username" type="text"></input>
                     <label htmlFor="password">Lozinka : </label>
                     <input type="password" onChange={handlePassword} className="border border-12 shadow-2xl my-3" name="password" ></input>    
-                    <button onClick={handleSubmit} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
              </form>
+             <button onClick={handleRequest} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
+
         </main>
     )
   }
