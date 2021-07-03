@@ -18,6 +18,7 @@ import java.util.List;
 
 @Service
 public class ObjavaPodaciService implements IObjavaPodaciService {
+
     private ObjavaPodaciRepository objavaPodaciRepository;
 
     private ILokacijaService lokacijaService;
@@ -45,18 +46,13 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     @Override
     public ObjavaPodaci sacuvajSlikaInfo(ObjavaDTO slikaDto) {
         ObjavaPodaci objavaPodaci = new ObjavaPodaci();
-        Objava objava = new Objava();
-        objava.setNazivFajla(slikaDto.getNazivFajla());
-        if (slikaDto.getNazivFajla().contains(".mp4")) {
-            objava.setDa_li_je_slika(false);
-        }
-        objava.setUsername(slikaDto.getUsername());
-        objava.setOpis(slikaDto.getOpis());
+        objavaPodaci.setNazivFajla(slikaDto.getNazivFajla());
+        objavaPodaci.setUsername(slikaDto.getUsername());
+        objavaPodaci.setOpis(slikaDto.getOpis());
         Lokacija lokacija = lokacijaService.findByName(slikaDto.getNazivLokacije());
-        objava.setLokacija(lokacija);
-        objava.setHashtagovi(tagService.kreirajHashTag(slikaDto.getTagovi()));
-        objavaRepository.save(objava);
-        objavaPodaci.setObjava(objava);
+        objavaPodaci.setLokacija(lokacija);
+        objavaPodaci.setHashtagovi(tagService.kreirajHashTag(slikaDto.getTagovi()));
+        objavaPodaciRepository.save(objavaPodaci);
         return save(objavaPodaci);
     }
 
@@ -69,13 +65,13 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
 
     }
 
-    /* ovo treba da stoji u objava repo a ne objava podaci repo !
+
     @Override
     public List<ObjavaPodaci> pretraziLokaciju(String lokacija) {
-        List<ObjavaPodaci> objavaPodacii = objavaPodaciRepository.findByLokacija(lokacija);
+        List<ObjavaPodaci> objavaPodacii = objavaPodaciRepository.findObjavaPodaciByLokacija(lokacija);
         return objavaPodacii;
-        //
-    } */
+
+    }
 
     @Override
     public List<ObjavaPodaci> pretraziTag(String tag) {
@@ -91,10 +87,6 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
         return null;
     }
 
-    @Override
-    public List<ObjavaPodaci> pretraziLokaciju(String lokacija) {
-        return null;
-    }
 
 
 }

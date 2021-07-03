@@ -42,6 +42,5 @@ public class Objava {
     @OneToOne
     private Album album;
 
-    @Column
-    private boolean da_li_je_slika = true;
+
 }

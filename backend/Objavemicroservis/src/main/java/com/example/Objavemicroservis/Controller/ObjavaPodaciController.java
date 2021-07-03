@@ -18,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/slika")
+
 public class ObjavaPodaciController {
 
     private ObjavaPodaciRepository objavaPodaciRepository;
