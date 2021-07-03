@@ -10,13 +10,13 @@ function ProfilNavBar(){
                         <Link to="/profilRouter/profil" className="ml-24">
                             Profil
                         </Link>
-                        <i class="fa fa-home"></i>
+                        <i className="fa fa-home"></i>
                     </div>
                     <div className="mx-12 flex flex-row justify-center items-center text-center">
                         <Link to="/profilRouter/objavisliku">
                             Objavi sliku
                         </Link>
-                        <i class="fa fa-image"></i>
+                        <i className="fa fa-image"></i>
                     </div>
 
                     <div className="mx-12 flex flex-row justify-center items-center  text-center">
@@ -44,6 +44,7 @@ function ProfilNavBar(){
                         <Link to="/" >
                             Odjava 
                         </Link>
+                        
                         <i className="fa fa-sign-out-alt"></i>
                     </div>           
                  
