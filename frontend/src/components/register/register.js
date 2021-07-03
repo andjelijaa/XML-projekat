@@ -52,9 +52,9 @@ function Registracija(){
         
      }).then(res => {
         if(res.status === 200){
+          console.log("react je retardiran i radi redirekciju samo ako ovde stoji console log.");
           setSuccess(true);
           setRedirect(true);
-          window.location.reload();
           
         }
     })
@@ -64,6 +64,8 @@ function Registracija(){
   useEffect(() => {
     if(redirect === true){
       history.push("/login");
+      window.location.reload();
+
     }
   });
 
