@@ -2,8 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useHistory} from 'react-router-dom';
 import {useEffect} from 'react';
-import  {toast, ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 function Registracija(){
 
@@ -55,11 +54,11 @@ function Registracija(){
         
      }).then(res => {
         if(res.status === 200){
-          toast.success("registered !");
+
           setRedirect(true);
         }
         else{
-          toast.error("error, try again ");
+         
         }
     })
   }
@@ -89,7 +88,7 @@ function Registracija(){
                     <label htmlFor="password">Lozinka : </label>
                     <input onChange={handlePassword} className="border border-12 shadow-2xl my-2" name="password" type="password"></input>
                     <button onClick={handleSubmit} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
-                    <ToastContainer></ToastContainer>
+                    
              </form>
         </main>
     )
