@@ -32,9 +32,9 @@ function Login(){
         }).then(res => {
             if(res.status === 200){
               setRedirect(true);
-              } else {
+            } else{
 
-              }}
+            }}
         )
      
       }
@@ -55,7 +55,6 @@ function Login(){
                     <label htmlFor="password">Lozinka : </label>
                     <input type="password" onChange={handlePassword} className="border border-12 shadow-2xl my-3" name="password" ></input>    
                     <button onClick={handleSubmit} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
-              
              </form>
         </main>
     )
