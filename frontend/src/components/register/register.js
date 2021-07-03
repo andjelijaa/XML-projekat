@@ -6,15 +6,13 @@ import {useEffect} from 'react';
 
 function Registracija(){
 
-    
- 
     const [ime, setIme] = useState("");
     const [prezime, setPrezime] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
-
     const [redirect, setRedirect] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     let history = new useHistory();
 
@@ -54,11 +52,10 @@ function Registracija(){
         
      }).then(res => {
         if(res.status === 200){
-
+          setSuccess(true);
           setRedirect(true);
-        }
-        else{
-         
+          window.location.reload();
+          
         }
     })
   }
@@ -76,6 +73,9 @@ function Registracija(){
         <main className="flex w-screen h-screen justify-center items-center">
             <div className="background w-screen h-screen"></div>
             <form className="text-2xl font-bold flex flex-col border border-blue-900 shadown-2xl p-10 text-center">
+                    <div className={success ? "visible bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" : "hidden"} role="alert">
+                      Registracija uspesna !
+                    </div>
                     <h1 className="font-mono text-3xl mb-16">Registracija</h1>
                     <label htmlFor="ime">Ime : </label>
                     <input onChange={handleIme} className="border border-12 shadow-2xl my-2" name="ime" type="text"></input>
@@ -88,7 +88,6 @@ function Registracija(){
                     <label htmlFor="password">Lozinka : </label>
                     <input onChange={handlePassword} className="border border-12 shadow-2xl my-2" name="password" type="password"></input>
                     <button onClick={handleSubmit} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
-                    
              </form>
         </main>
     )
