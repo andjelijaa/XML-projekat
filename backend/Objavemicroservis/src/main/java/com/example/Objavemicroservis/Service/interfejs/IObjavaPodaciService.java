@@ -17,9 +17,13 @@ public interface IObjavaPodaciService {
 
     ObjavaPodaci getById(Long id);
 
+    SlikaDTO slikaFile(ObjavaPodaci objavaPodaci, String filePath);
+
+    List<SlikaDTO> getSlikeFiles(List<ObjavaPodaci> objavePodaci);
+
     List<ObjavaPodaci> getJavneObjave();
 
-    List<ObjavaPodaci> pretraziLokaciju(String lokacija);
+    List<SlikaDTO> pretraziLokaciju(String lokacija);
 
-    List<ObjavaPodaci> pretraziTag(String tag);
+    List<SlikaDTO> pretraziTag(String tag);
 }

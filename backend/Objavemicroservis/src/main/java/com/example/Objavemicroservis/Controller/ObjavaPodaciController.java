@@ -38,9 +38,9 @@ public class ObjavaPodaciController {
 
 
     @GetMapping("/profil/{username}")
-    public ResponseEntity getImagesByUsername(@PathVariable("username") String username) {
-    //TODO
-    return null;
+    public ResponseEntity getSlikeByUsername(@PathVariable("username") String username) {
+        List<ObjavaPodaci> userObjavePodaci = objavaPodaciRepository.findObjavaPodaciByUsername(username);
+        return new ResponseEntity(objavaPodaciService.getSlikeFiles(userObjavePodaci), HttpStatus.OK);
     }
 
     @PostMapping("/info")
