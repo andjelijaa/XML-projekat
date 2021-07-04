@@ -6,6 +6,7 @@ import com.example.Objavemicroservis.DTO.SlikaDTO;
 import com.example.Objavemicroservis.Entity.Lokacija;
 import com.example.Objavemicroservis.Entity.Objava;
 import com.example.Objavemicroservis.Entity.ObjavaPodaci;
+import com.example.Objavemicroservis.FileUpload;
 import com.example.Objavemicroservis.Repository.ObjavaPodaciRepository;
 import com.example.Objavemicroservis.Repository.ObjavaRepository;
 import com.example.Objavemicroservis.Service.interfejs.IHashtagService;
@@ -13,7 +14,13 @@ import com.example.Objavemicroservis.Service.interfejs.ILokacijaService;
 import com.example.Objavemicroservis.Service.interfejs.IObjavaPodaciService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,6 +37,8 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
 
     @Autowired
     private ObjavaRepository objavaRepository;
+
+    private static String upload = "profil-slike";
 
     @Override
     public List<ObjavaPodaci> getAll() {
@@ -57,8 +66,11 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
         objavaPodaci.setLokacija(lokacija);
         objavaPodaci.setHashtagovi(tagService.kreirajHashTag(slikaDto.getTagovi()));
         objavaPodaciRepository.save(objavaPodaci);
+
         return save(objavaPodaci);
     }
+
+
 
     @Override
     public ObjavaPodaci getById(Long id) {
