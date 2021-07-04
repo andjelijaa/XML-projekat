@@ -54,12 +54,12 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
 
         profilRegistrovani.setUloga("KORISNIK");
-        try{
+     /*  try{
             profilKonekcija.registerUser(profilRegistrovaniDTO);
         }catch (Exception e){
             throw new BadRequestException("Neuspesna registracija!");
         }
-        return profilRegistrovaniRepository.save(profilRegistrovani);
+       */ return profilRegistrovaniRepository.save(profilRegistrovani);
     }
 
     @Override
