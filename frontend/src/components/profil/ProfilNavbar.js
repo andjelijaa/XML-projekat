@@ -2,6 +2,15 @@ import { Link } from 'react-router-dom';
 
 
 function ProfilNavBar(){
+
+
+    const handleOdjava = () => {
+        localStorage.clear();
+        <Link to="/login">
+        </Link>
+
+    }
+
     return(
         <main>
             <div className="background"></div>
@@ -41,9 +50,9 @@ function ProfilNavBar(){
 
                     </div>
                     <div className="mx-12 flex flex-row justify-center items-center  text-center">
-                        <Link to="/" >
-                            Odjava 
-                        </Link>
+                     <button onClick={handleOdjava}>
+                         Odjava
+                     </button>
                         
                         <i className="fa fa-sign-out-alt"></i>
                     </div>           

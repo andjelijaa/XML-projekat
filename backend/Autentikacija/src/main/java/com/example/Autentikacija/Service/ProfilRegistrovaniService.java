@@ -25,10 +25,6 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
     @Autowired
     private ProfilRegistrovaniRepository profilRegistrovaniRepository;
 
-
-    @Autowired
-    private  Uloga1Service ulogaService;
-
     private final RestTemplate restTemplate;
 
     @Autowired
@@ -56,8 +52,9 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
             throw new BadRequestException("username vec postoji");
         }
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
-        profilRegistrovani.setUloge(ulogaService.findByName("ROLE_korisnik"));
-        try{
+
+        profilRegistrovani.setUloga("KORISNIK");
+        /*try{
             profilKonekcija.registerUser(profilRegistrovaniDTO);
         }catch (Exception e){
             throw new BadRequestException("Neuspesna registracija!");
