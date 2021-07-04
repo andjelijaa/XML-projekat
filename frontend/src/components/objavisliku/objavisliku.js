@@ -31,6 +31,27 @@ function Objavisliku(){
 
 
 
+    const uploadImage=async e=>{
+     const files=e.target.files
+     const data = new FormData()
+     data.append('file',files[0])
+     data.append('upload_preset','darwin')
+     setLoading(true)
+     const res=await axios(
+       'http://localhost:7876/slika',
+     {
+       method:'POST',
+       body: data
+     }
+       )
+    const file=await res.json()
+    setSelectedFile(file.secure_url)
+     setLoading(false)
+    }
+
+
+
+
   
     const handleTag = (e) => {
       setTag(tag =>  [...tag,e.target.value]);
