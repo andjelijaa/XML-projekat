@@ -6,8 +6,8 @@ import axios from "axios";
 
 function Objavisliku(){
     const [nazivfajla, setNazivfajla] = useState("");
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [tag, setTag] = useState("");
+    const [selectedFile, setSelectedFile] = useState();
+    const [tag, setTag] = useState(["zzz"]);
     const [lokacija, setLokacija] = useState("");
     const [username, setUsername]= useState("");
     const [opis, setOpis] = useState("");
@@ -22,10 +22,10 @@ function Objavisliku(){
 
 
     const userData = JSON.stringify({
-      "nazivfajla" : nazivfajla,
+      "nazivFajla" : nazivfajla,
       "selectedFile" : selectedFile,
-      "tag" : tag,
-      "lokacija" : lokacija,
+      "tagovi" : tag,
+      "nazivLokacije" : lokacija,
       "username" : username,
       "opis": opis
     })
@@ -33,12 +33,10 @@ function Objavisliku(){
 
   
     const handleTag = (e) => {
-      setTag(e.target.value);
+      setTag(tag =>  [...tag,e.target.value]);
     }
     
-   const handleUsername = (e) => {
-    setUsername(e.target.value);
-    }
+
 
     const handleLokacija = (e) => {
       setLokacija(e.target.value);
@@ -51,6 +49,10 @@ function Objavisliku(){
     const handleRequest = (e) => {
       e.preventDefault();
       handleSubmit()
+    }
+
+   const fileSelectedHandle = (e) => {
+      setSelectedFile(e.target.files[0]);
     }
 
 
@@ -80,7 +82,7 @@ function Objavisliku(){
         <input
           type="file"
           value={selectedFile}
-          onChange={(e) => setSelectedFile(e.target.files[0])}
+          onChange={fileSelectedHandle}
         />
          <label> Dodaj opis</label>
         <input onChange={handleOpis} name="opis" type="text" className="border border-16 shadow-2xl my-2"></input>
