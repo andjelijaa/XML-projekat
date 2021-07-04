@@ -30,21 +30,14 @@ function Objavisliku(){
       "opis": opis
     })
 
- 
-    const handleNazivfajla = (e) => {
-      setNazivfajla(e.target.value);
-    }
 
-    const handleSelectFile = (e) => {
-      setSelectedFile(e.target.value);
-    }
   
     const handleTag = (e) => {
       setTag(e.target.value);
     }
     
-    const handleUsername = (e) => {
-      setUsername(e.target.value);
+   const handleUsername = (e) => {
+    setUsername(e.target.value);
     }
 
     const handleLokacija = (e) => {
@@ -95,7 +88,7 @@ function Objavisliku(){
         <input onChange={handleTag} name="tag" type="text" className="border border-16 shadow-2xl my-2"></input>
         <label>Dodaj lokaciju</label>
         <input onChange={handleLokacija} name="lokacija" type="text" className="border border-16 shadow-2xl my-2"></input>
-        <button  type="submit" className="border border-12 border-black text-black my-12 text-2xl">Objavi</button>
+        <button   onClick={handleRequest} type="submit" className="border border-12 border-black text-black my-12 text-2xl">Objavi</button>
       </form>
     </div>
 

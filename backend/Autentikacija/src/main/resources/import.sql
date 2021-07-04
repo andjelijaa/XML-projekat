@@ -1,1 +1,1 @@
-INSERT INTO profil_registrovani (id, password, username, uloga) values (104, "123","125","KORISNIK");
+INSERT INTO profil_registrovani (id, password, username, uloga) values (107  , "123","127","KORISNIK");
