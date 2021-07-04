@@ -19,12 +19,16 @@ import java.util.List;
 @Service
 public class ObjavaPodaciService implements IObjavaPodaciService {
 
+    @Autowired
     private ObjavaPodaciRepository objavaPodaciRepository;
 
+    @Autowired
     private ILokacijaService lokacijaService;
 
+    @Autowired
     private IHashtagService tagService;
 
+    @Autowired
     private ObjavaRepository objavaRepository;
 
     @Override
