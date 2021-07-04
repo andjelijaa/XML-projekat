@@ -2,9 +2,6 @@ import {useEffect, useState} from 'react';
 import axios from "axios";
 import { Redirect } from 'react-router-dom';
 
-
-
-
 function Objavisliku(){
     const [nazivfajla, setNazivfajla] = useState("");
     const [selectedFile, setSelectedFile] = useState('');
@@ -32,30 +29,12 @@ function Objavisliku(){
       "opis": opis
     })
 
-    const uploadImage=async e=>{
-     const files=e.target.files
-     const data = new FormData()
-     data.append('file',files[0])
-     data.append('upload_preset','darwin')
-     setLoading(true)
-     const res=await axios(
-       'http://localhost:7876/slika',
-     {
-       method:'POST',
-       body: data
-     }
-       )
-    const file=await res.json()
-    setSelectedFile(file.secure_url)
-     setLoading(false)
-    }
 
 
   
     const handleTag = (e) => {
       setTag(tag =>  [...tag,e.target.value]);
     }
-    
 
 
     const handleLokacija = (e) => {
@@ -108,7 +87,9 @@ function Objavisliku(){
         <input onChange={handleTag} name="tag" type="text" className="border border-16 shadow-2xl my-2"></input>
         <label>Dodaj lokaciju</label>
         <input onChange={handleLokacija} name="lokacija" type="text" className="border border-16 shadow-2xl my-2"></input>
+
         <button   onClick={handleRequest} type="submit" className="border border-12 border-black text-black my-12 text-2xl">Objavi</button>
+
       </form>
     </div>
 
