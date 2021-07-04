@@ -9,10 +9,14 @@ import com.example.Objavemicroservis.Entity.Lokacija;
 import com.example.Objavemicroservis.Entity.Objava;
 import com.example.Objavemicroservis.Entity.ObjavaPodaci;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.Objavemicroservis.FileUpload;
 =======
 import com.example.Objavemicroservis.ObjavaMapper;
 >>>>>>> 43f5ce5e65231f078663ef565c8c1bbb85b268d6
+=======
+
+>>>>>>> 515c32dd509ecbebdaa58d83f2356f6da865d8ec
 import com.example.Objavemicroservis.Repository.ObjavaPodaciRepository;
 import com.example.Objavemicroservis.Repository.ObjavaRepository;
 import com.example.Objavemicroservis.Service.interfejs.IHashtagService;
@@ -27,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.IOException;
 import java.util.ArrayList;
 =======
@@ -36,6 +41,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 >>>>>>> 43f5ce5e65231f078663ef565c8c1bbb85b268d6
+=======
+
+>>>>>>> 515c32dd509ecbebdaa58d83f2356f6da865d8ec
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;

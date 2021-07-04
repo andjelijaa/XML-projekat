@@ -30,6 +30,7 @@ function Objavisliku(){
     })
 
 
+
     const uploadImage=async e=>{
      const files=e.target.files
      const data = new FormData()
@@ -47,6 +48,7 @@ function Objavisliku(){
     setSelectedFile(file.secure_url)
      setLoading(false)
     }
+
 
 
 
