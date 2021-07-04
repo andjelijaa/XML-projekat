@@ -22,8 +22,12 @@ function Login(){
 
     const handleRequest = (e) => {
       e.preventDefault();
-      handleSubmit()
+      handleSubmit();
+      setTimeout(function(){
+          window.location.replace("http://localhost:3000/profilRouter/profil");
+      }, 1000);
     }
+
 
     function handleSubmit(){
         axios.post('http://localhost:7879/profilRegistrovanog/login', userData, {
@@ -34,6 +38,7 @@ function Login(){
         }).then(res => {
             if(res.status === 200){
               localStorage.setItem("token", res.data);
+              console.log("Uspesan login");
             }
           }
         )

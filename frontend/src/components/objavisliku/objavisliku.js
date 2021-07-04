@@ -1,9 +1,6 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
 
-
-
-
 function Objavisliku(){
     const [nazivfajla, setNazivfajla] = useState("");
     const [selectedFile, setSelectedFile] = useState();
@@ -30,12 +27,10 @@ function Objavisliku(){
       "opis": opis
     })
 
-
   
     const handleTag = (e) => {
       setTag(tag =>  [...tag,e.target.value]);
     }
-    
 
 
     const handleLokacija = (e) => {
@@ -90,7 +85,9 @@ function Objavisliku(){
         <input onChange={handleTag} name="tag" type="text" className="border border-16 shadow-2xl my-2"></input>
         <label>Dodaj lokaciju</label>
         <input onChange={handleLokacija} name="lokacija" type="text" className="border border-16 shadow-2xl my-2"></input>
+
         <button   onClick={handleRequest} type="submit" className="border border-12 border-black text-black my-12 text-2xl">Objavi</button>
+
       </form>
     </div>
 
