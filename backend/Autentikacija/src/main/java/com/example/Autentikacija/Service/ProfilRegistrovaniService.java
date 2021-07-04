@@ -56,12 +56,12 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
             throw new BadRequestException("username vec postoji");
         }
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
-        //profilRegistrovani.setUloge(ulogaService.findByName("ROLE_korisnik"));
-        /*try{
+        profilRegistrovani.setUloge(ulogaService.findByName("ROLE_korisnik"));
+        try{
             profilKonekcija.registerUser(profilRegistrovaniDTO);
         }catch (Exception e){
             throw new BadRequestException("Neuspesna registracija!");
-        }*/
+        }
         return profilRegistrovaniRepository.save(profilRegistrovani);
     }
 
