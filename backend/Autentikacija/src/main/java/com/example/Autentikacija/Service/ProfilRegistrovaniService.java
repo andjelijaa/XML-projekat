@@ -12,7 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
-
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -25,15 +24,8 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
     @Autowired
     private ProfilRegistrovaniRepository profilRegistrovaniRepository;
 
-    private final RestTemplate restTemplate;
-
     @Autowired
     private ProfilKonekcija profilKonekcija;
-
-    @Autowired
-    public ProfilRegistrovaniService() {
-        this.restTemplate = new RestTemplate();
-    }
 
     public ProfilRegistrovani findByUsername(String username) {
         ProfilRegistrovani profilRegistrovani = profilRegistrovaniRepository.findByUsername(username);
@@ -54,11 +46,11 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
         profilRegistrovani.setPassword(passwordEncoder.encode(profilRegistrovaniDTO.getPassword()));
 
         profilRegistrovani.setUloga("KORISNIK");
-        try{
+        /*try{
             profilKonekcija.registerUser(profilRegistrovaniDTO);
         }catch (Exception e){
             throw new BadRequestException("Neuspesna registracija!");
-        }
+        }*/
         return profilRegistrovaniRepository.save(profilRegistrovani);
     }
 
@@ -69,7 +61,7 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
             throw new BadRequestException("Neodgovarajuci username ili password.");
         } else {
         return profilRegistrovani;
-    }
+        }
     }
 
 }
