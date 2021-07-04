@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class LokacijaService implements ILokacijaService {
 
-
+   @Autowired
     private LokacijaRepository lokacijaRepository;
 
     @Override
@@ -30,8 +30,7 @@ public class LokacijaService implements ILokacijaService {
     @Override
     public Lokacija findById(Long id) {
         Lokacija lokacija = lokacijaRepository.findLokacijaById(id);
-        if(lokacija == null)
-            return null;
+
         return lokacija;
     }
 
@@ -39,8 +38,7 @@ public class LokacijaService implements ILokacijaService {
     public Lokacija findByName(String naziv_mesta) {
 
           Lokacija lokacija = lokacijaRepository.findByName(naziv_mesta);
-          if(lokacija == null)
-              return null;
+
           return lokacija;
     }
 }

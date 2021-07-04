@@ -23,9 +23,6 @@ public class ObjavaPodaci {
     @Column(nullable = false, unique = true, length = 64)
     private String nazivFajla;
 
- //   @Column
-   // private String komentari;
-
     @Column
     private String username;
 
