@@ -18,7 +18,9 @@ function Registracija(){
       "password" : password,
       "username" : username
     })
+   
 
+    
     const handleIme = (e) => {
       setIme(e.target.value);
     }

@@ -21,12 +21,13 @@ public class ObjavemicroservisApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ObjavemicroservisApplication.class, args);
 	}
+
 	@Bean
 	public CorsFilter corsFilter() {
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		final CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
-		config.addAllowedOrigin("*");
+		config.addAllowedOrigin("http://localhost:3000");
 		config.addAllowedHeader("*");
 		config.addAllowedMethod("OPTIONS");
 		config.addAllowedMethod("HEAD");
