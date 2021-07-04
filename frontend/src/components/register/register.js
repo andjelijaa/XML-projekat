@@ -44,6 +44,7 @@ function Registracija(){
     const handleRequest = (e) => {
       e.preventDefault();
       handleSubmit()
+      window.location.replace("http://localhost:3000/login")
     }
 
     function handleSubmit(){
@@ -53,7 +54,8 @@ function Registracija(){
         },
         }).then(res => {
             if(res.status === 200){
-              console.log("Uspesna registracija");              
+              console.log("Uspesna registracija");
+              setTimeout(handleSubmit, 2000);              
             }
     })
   }

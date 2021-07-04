@@ -15,20 +15,20 @@ function Home(){
             <nav className="flex flex-row justify-between items-center w-full text-center border border-12 p-4 border-blue-900 font-mono text-2xl bg-blue-400 text-white shadow-2xl">
                     <div>
                         <Link to="/" className="ml-24">
-                            Home <i class="fa fa-home"></i>
+                            Home <i className="fa fa-home"></i>
                         </Link>
                         <Link to="/pretrage" className="mx-24">
-                            Pretrage <i class="fa fa-search"></i>
+                            Pretrage <i className="fa fa-search"></i>
                         </Link>
                    
                     </div>
                  
                     <div>
                         <Link to="/registracija" className="mx-24">
-                            Registracija <i class="fa fa-address-book"></i>
+                            Registracija <i className="fa fa-address-book"></i>
                         </Link>
                         <Link to="/login" className="mr-24">
-                            Login <i class="fa fa-share"></i>
+                            Login <i className="fa fa-share"></i>
                         </Link>
                     </div>                  
             </nav>
@@ -41,8 +41,8 @@ function Home(){
                     <img className="post-pick my-4" src={biliGejtic} alt="bili gejtic"></img>
                     <h3 className="my-4">#tb #oneyearago #vodka</h3>
                     <div className="flex justify-between text-center w-2/6 my-4">
-                        <i onClick={handleHeartClick} class="fa fa-heart"></i>
-                        <i class="fa fa-comment"></i>
+                        <i onClick={handleHeartClick} className="fa fa-heart"></i>
+                        <i className="fa fa-comment"></i>
                     </div>
                 </div>
 
@@ -51,8 +51,8 @@ function Home(){
                     <img className="post-pick my-4" src={markoZukic} alt="bili gejtic"></img>
                     <h3 className="my-4">#tb #lastnight #prom</h3>
                     <div className="flex justify-between text-center w-2/6 my-4">
-                        <i onClick={handleHeartClick} class="fa fa-heart"></i>
-                        <i class="fa fa-comment"></i>
+                        <i onClick={handleHeartClick} className="fa fa-heart"></i>
+                        <i className="fa fa-comment"></i>
                     </div>
                 </div>
 
@@ -61,8 +61,8 @@ function Home(){
                     <img className="post-pick my-4" src={andjelaMerkalovic} alt="bili gejtic"></img>
                     <h3 className="my-4">#tb #germany #office</h3>
                     <div className="flex justify-between text-center w-2/6 my-4">
-                        <i onClick={handleHeartClick} class="fa fa-heart"></i>
-                        <i class="fa fa-comment"></i>
+                        <i onClick={handleHeartClick} className="fa fa-heart"></i>
+                        <i className="fa fa-comment"></i>
                     </div>
                 </div>
 
@@ -71,8 +71,8 @@ function Home(){
                     <img className="post-pick my-4" src={vojaSeselj} alt="bili gejtic"></img>
                     <h3 className="my-4">#uKandzamaKarlaDelPonte #win #Hag</h3>
                     <div className="flex justify-between text-center w-2/6 my-4">
-                        <i onClick={handleHeartClick} class="fa fa-heart"></i>
-                        <i class="fa fa-comment"></i>
+                        <i onClick={handleHeartClick} className="fa fa-heart"></i>
+                        <i className="fa fa-comment"></i>
                     </div>
                 </div>
 
