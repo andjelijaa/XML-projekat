@@ -1,10 +1,13 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
+import { Redirect } from 'react-router-dom';
 
 function Objavisliku(){
     const [nazivfajla, setNazivfajla] = useState("");
-    const [selectedFile, setSelectedFile] = useState();
-    const [tag, setTag] = useState(["zzz"]);
+    const [selectedFile, setSelectedFile] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const [tag, setTag] = useState([""]);
     const [lokacija, setLokacija] = useState("");
     const [username, setUsername]= useState("");
     const [opis, setOpis] = useState("");
@@ -20,12 +23,13 @@ function Objavisliku(){
 
     const userData = JSON.stringify({
       "nazivFajla" : nazivfajla,
-      "selectedFile" : selectedFile,
       "tagovi" : tag,
       "nazivLokacije" : lokacija,
       "username" : username,
       "opis": opis
     })
+
+
 
   
     const handleTag = (e) => {
@@ -46,11 +50,7 @@ function Objavisliku(){
       handleSubmit()
     }
 
-   const fileSelectedHandle = (e) => {
-      setSelectedFile(e.target.files[0]);
-    }
-
-
+    
     function handleSubmit(){
       axios.post('http://localhost:7876/slika/info', userData, {
         headers: {
@@ -58,7 +58,8 @@ function Objavisliku(){
         },
         }).then(res => {
             if(res.status === 200){
-              console.log("Uspesna postavljna slika");              
+              console.log("Uspesna sacuvana slika");
+           
             }
     })
   }
@@ -75,10 +76,11 @@ function Objavisliku(){
         />
 
         <input
-          type="file"
+          type="file" 
           value={selectedFile}
-          onChange={fileSelectedHandle}
-        />
+          onChange={uploadImage}
+        />{loading ? (<h3>Loading...</h3> ) :
+        (<img src={selectedFile} style={{width:'300px'}} />)}
          <label> Dodaj opis</label>
         <input onChange={handleOpis} name="opis" type="text" className="border border-16 shadow-2xl my-2"></input>
         <label> Dodaj tag</label>

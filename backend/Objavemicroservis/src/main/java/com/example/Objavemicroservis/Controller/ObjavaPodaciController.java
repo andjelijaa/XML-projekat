@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,11 +30,15 @@ public class ObjavaPodaciController {
     private static String upload = "profil-slike";
 
     @PostMapping
-    public String sacuvajSliku(@RequestParam("file") MultipartFile multipartFile) throws IOException {
-        String fileNaziv = StringUtils.cleanPath(multipartFile.getOriginalFilename().replaceAll("\\s", ""));
-        upload = "profil-slike";
-        FileUpload.sacuvajFile(upload, fileNaziv, multipartFile);
-        return fileNaziv;
+    public List<String> sacuvajSliku(@RequestParam("file") List<MultipartFile> multipartFiles) throws IOException {
+        List<String> fileNazivi=new ArrayList<>();
+        for(MultipartFile multi: multipartFiles) {
+            String fileNaziv = StringUtils.cleanPath(multi.getOriginalFilename().replaceAll("\\s", ""));
+            upload = "profil-slike";
+            FileUpload.sacuvajFile(upload, fileNaziv, multi);
+            fileNazivi.add(fileNaziv);
+        }
+        return fileNazivi;
     }
 
 

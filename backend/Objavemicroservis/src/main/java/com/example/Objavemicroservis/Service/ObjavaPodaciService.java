@@ -8,7 +8,7 @@ import com.example.Objavemicroservis.Entity.Hashtag;
 import com.example.Objavemicroservis.Entity.Lokacija;
 import com.example.Objavemicroservis.Entity.Objava;
 import com.example.Objavemicroservis.Entity.ObjavaPodaci;
-import com.example.Objavemicroservis.ObjavaMapper;
+
 import com.example.Objavemicroservis.Repository.ObjavaPodaciRepository;
 import com.example.Objavemicroservis.Repository.ObjavaRepository;
 import com.example.Objavemicroservis.Service.interfejs.IHashtagService;
@@ -17,12 +17,12 @@ import com.example.Objavemicroservis.Service.interfejs.IObjavaPodaciService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -101,8 +101,11 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
         objavaPodaci.setLokacija(lokacija);
         objavaPodaci.setHashtagovi(tagService.kreirajHashTag(slikaDto.getTagovi()));
         objavaPodaciRepository.save(objavaPodaci);
+
         return save(objavaPodaci);
     }
+
+
 
     @Override
     public ObjavaPodaci getById(Long id) {
