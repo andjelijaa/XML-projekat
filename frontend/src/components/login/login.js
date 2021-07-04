@@ -5,7 +5,6 @@ function Login(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [redirect, setRedirect] = useState(false);
     
 
     const userData = JSON.stringify({
@@ -24,8 +23,6 @@ function Login(){
     const handleRequest = (e) => {
       e.preventDefault();
       handleSubmit()
-      setRedirect(true);
-      return window.location.replace("http://localhost:3000/profilRouter");
     }
 
     function handleSubmit(){
@@ -37,8 +34,6 @@ function Login(){
         }).then(res => {
             if(res.status === 200){
               localStorage.setItem("token", res.data);
-              setRedirect(true);
-              window.location.reload();
             }
           }
         )
@@ -46,8 +41,6 @@ function Login(){
       }
 
     
-    if(redirect === true) { return window.location.replace("http://localhost:3000/profilRouter")}
-    else{
      return(
         <main className="flex w-screen h-screen justify-center items-center">
             <div className="background w-screen h-screen"></div>
@@ -58,11 +51,9 @@ function Login(){
                     <label htmlFor="password">Lozinka : </label>
                     <input type="password" onChange={handlePassword} className="border border-12 shadow-2xl my-3" name="password" ></input>    
              </form>
-             <button onClick={handleRequest} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
-
+             <button onClick={handleRequest} className="border border-12 border-white text-white my-12 text-3xl" type="button">Potvrdi</button>
         </main>
     )
-  }
 }
 
 export default Login;

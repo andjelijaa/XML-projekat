@@ -9,7 +9,6 @@ function Registracija(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
-    const [redirect, setRedirect] = useState(false);
 
 
     const userData = JSON.stringify({
@@ -43,8 +42,6 @@ function Registracija(){
     const handleRequest = (e) => {
       e.preventDefault();
       handleSubmit()
-      setRedirect(true);
-      return window.location.replace("http://localhost:3000/login");
     }
 
     function handleSubmit(){
@@ -59,8 +56,6 @@ function Registracija(){
     })
   }
 
-  if(redirect === true) { return window.location.replace("http://localhost:3000/login")}
-  else{
     return(
         <main className="flex w-screen h-screen justify-center items-center">
             <div className="background w-screen h-screen"></div>
@@ -76,11 +71,10 @@ function Registracija(){
                     <input onChange={handleEmail} autoComplete="" className="border border-12 shadow-2xl my-2" name="email" type="email"></input>
                     <label htmlFor="password">Lozinka : </label>
                     <input onChange={handlePassword} autoComplete="" className="border border-12 shadow-2xl my-2" name="password" type="password"></input>
-                    <button onClick={handleRequest} className="border border-12 border-white text-white my-12 text-3xl" type="submit">Potvrdi</button>
+                    <button onClick={handleRequest} className="border border-12 border-white text-white my-12 text-3xl" type="button">Potvrdi</button>
              </form>
         </main>
     )
-  }
 }
 
 export default Registracija;
