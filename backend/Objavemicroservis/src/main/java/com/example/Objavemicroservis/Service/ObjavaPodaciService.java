@@ -46,6 +46,9 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     private ILokacijaService lokacijaService;
 
     @Autowired
+    private  ProfilKonekcija profilKonekcija;
+
+    @Autowired
     private IHashtagService tagService;
 
     @Autowired
@@ -150,7 +153,9 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
                     objavePodaci.add(objavaPodaci);
             }
         }
-//        List<String> publicProfiles = ProfilKonekcija.javniProfili(getUsernamesByPost(objavePodaci));
+        List<String> publicProfiles = profilKonekcija.javniProfili(getUsernamesByPost(objavePodaci));
+       // objavePodaci = ...(publicProfiles, objavePodaci);
+
         return getSlikeFiles(objavePodaci);
     }
 
