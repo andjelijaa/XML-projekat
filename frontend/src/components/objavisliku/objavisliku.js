@@ -1,11 +1,11 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
-import { Redirect } from 'react-router-dom';
 
 function Objavisliku(){
     const [nazivfajla, setNazivfajla] = useState("");
     const [selectedFile, setSelectedFile] = useState('');
     const [loading, setLoading] = useState(false);
+    const [file, setFile] = useState();
 
     const [tag, setTag] = useState([""]);
     const [lokacija, setLokacija] = useState("");
@@ -31,7 +31,7 @@ function Objavisliku(){
 
 
 
-    const uploadImage=async e=>{
+    /*const uploadImage=async e=>{
      const files=e.target.files
      const data = new FormData()
      data.append('file',files[0])
@@ -47,16 +47,24 @@ function Objavisliku(){
     const file=await res.json()
     setSelectedFile(file.secure_url)
      setLoading(false)
+    }*/
+
+
+    // MOJ UPLOAD IMAGE, PA SUTRA OVAJ MOJ OBRISI AKO NE RADI :D
+    const uploadImage = (e) => {
+       var bodyFormData = new FormData();
+       bodyFormData.append('file', e.target.files[0]);
+
+       axios.post("http://localhost:7876/slika", bodyFormData, {
+  
+        }).then(res => {
+          console.log(res.data);
+        })
     }
-
-
-
-
   
     const handleTag = (e) => {
       setTag(tag =>  [...tag,e.target.value]);
     }
-
 
     const handleLokacija = (e) => {
       setLokacija(e.target.value);
@@ -73,17 +81,24 @@ function Objavisliku(){
 
     
     function handleSubmit(){
-      axios.post('http://localhost:7876/slika/info', userData, {
-        headers: {
-           'content-type': 'application/json',
-        },
-        }).then(res => {
-            if(res.status === 200){
-              console.log("Uspesna sacuvana slika");
-           
-            }
-    })
-  }
+
+      // SACUVAJ SLIKU 
+     
+  
+
+          //SACUVAJ OSTATAK IZ OBJAVE
+          axios.post('http://localhost:7876/slika/info', userData, {
+            headers: {
+               'content-type': 'application/json',
+            },
+            }).then(res => {
+                if(res.status === 200){
+                  console.log("Uspesna sacuvana slika");
+               
+                }
+          })
+        }
+      
 
 
     return(
@@ -97,7 +112,7 @@ function Objavisliku(){
         />
 
         <input
-          type="file" 
+          type="file" multiple
           value={selectedFile}
           onChange={uploadImage}
         />{loading ? (<h3>Loading...</h3> ) :
@@ -108,8 +123,7 @@ function Objavisliku(){
         <input onChange={handleTag} name="tag" type="text" className="border border-16 shadow-2xl my-2"></input>
         <label>Dodaj lokaciju</label>
         <input onChange={handleLokacija} name="lokacija" type="text" className="border border-16 shadow-2xl my-2"></input>
-
-        <button   onClick={handleRequest} type="submit" className="border border-12 border-black text-black my-12 text-2xl">Objavi</button>
+        <button onClick={handleRequest} type="submit" className="border border-12 border-black text-black my-12 text-2xl">Objavi</button>
 
       </form>
     </div>
