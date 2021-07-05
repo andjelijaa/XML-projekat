@@ -55,7 +55,8 @@ function Registracija(){
         }).then(res => {
             if(res.status === 200){
               console.log("Uspesna registracija");
-              setTimeout(handleSubmit, 2000);              
+              setTimeout(handleSubmit, 2000);
+             
             }
     })
   }

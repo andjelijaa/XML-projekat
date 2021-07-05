@@ -14,7 +14,7 @@ function App() {
         <Route component={Registracija} path="/registracija"/>
         <Route component={Login} path="/login"/>
         <Route component={Search} path="/pretrage"/>
-        <Route component={profilRouter} path="/profilRouter"/>
+        <Route component={profilRouter} path="/:username"/>
       </Switch>
     </BrowserRouter>
   );
