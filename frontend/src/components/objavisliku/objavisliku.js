@@ -54,12 +54,13 @@ function Objavisliku(){
     const uploadImage = (e) => {
        var bodyFormData = new FormData();
        bodyFormData.append('file', e.target.files[0]);
-
-       axios.post("http://localhost:7876/slika", bodyFormData, {
+      setLoading(true)
+       axios.post("http://localhost:7876/slika/sacuvaj", bodyFormData, {
   
         }).then(res => {
           console.log(res.data);
         })
+        setLoading(false)
     }
   
     const handleTag = (e) => {
