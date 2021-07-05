@@ -13,7 +13,7 @@ import com.example.Objavemicroservis.Repository.KomentarRepository;
 public class KomentarService implements IKomentarService {
 
 
-
+    @Autowired
      private KomentarRepository komentarRepository;
 
     @Override

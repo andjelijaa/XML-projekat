@@ -22,6 +22,7 @@ import java.util.List;
 
 public class ObjavaPodaciController {
 
+    @Autowired
     private ObjavaPodaciRepository objavaPodaciRepository;
 
     @Autowired
