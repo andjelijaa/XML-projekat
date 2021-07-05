@@ -143,6 +143,19 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
         return usernames;
     }
 
+    private List<ObjavaPodaci> filterJavneObjavePodaciByUsernames(List<String> usernames, List<ObjavaPodaci> objavePodaci) {
+        List<ObjavaPodaci> javneObjavePodaci = new ArrayList<>();
+        for (ObjavaPodaci objavaPodaci : objavePodaci) {
+            for (String username : usernames) {
+                if (objavaPodaci.getObjava().getUsername().equals(username))
+                    javneObjavePodaci.add(objavaPodaci);
+            }
+        }
+        Set<ObjavaPodaci> set = new HashSet<>(javneObjavePodaci);
+        javneObjavePodaci = set.stream().collect(Collectors.toList());
+        return javneObjavePodaci;
+    }
+
     @Override
     public List<SlikaDTO> pretraziTag(String tag) {
         List<ObjavaPodaci> sveObjavePodaci = findAll();
@@ -154,15 +167,16 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
             }
         }
         List<String> publicProfiles = profilKonekcija.javniProfili(getUsernamesByPost(objavePodaci));
-       // objavePodaci = ...(publicProfiles, objavePodaci);
-
+        objavePodaci = filterJavneObjavePodaciByUsernames(publicProfiles, objavePodaci);
         return getSlikeFiles(objavePodaci);
     }
 
     @Override
     public List<ObjavaPodaci> getJavneObjave() {
-        //TODO
-        return null;
+        List<ObjavaPodaci> objavePodaci = findAll();
+        List<String> usernames = profilKonekcija.getPublicProfil();
+        return filterJavneObjavePodaciByUsernames(usernames, objavePodaci);
+
     }
 
 
