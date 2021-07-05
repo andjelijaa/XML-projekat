@@ -29,7 +29,7 @@ public class ObjavaPodaciController {
 
     private static String upload = "profil-slike";
 
-    @PostMapping
+    @PostMapping("/sacuvaj")
     public List<String> sacuvajSliku(@RequestParam("file") List<MultipartFile> multipartFiles) throws IOException {
         List<String> fileNazivi=new ArrayList<>();
         for(MultipartFile multi: multipartFiles) {

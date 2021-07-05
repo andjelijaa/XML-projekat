@@ -70,7 +70,7 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     public ObjavaPodaci save(ObjavaPodaci objavaPodaci) {
 
         ObjavaPodaci novaObjavaPodaci = new ObjavaPodaci();
-        novaObjavaPodaci = objavaPodaciRepository.save(novaObjavaPodaci);
+        novaObjavaPodaci = objavaPodaciRepository.save(objavaPodaci);
 
         return novaObjavaPodaci;
     }
