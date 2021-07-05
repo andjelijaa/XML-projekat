@@ -25,7 +25,7 @@ function Login(){
       handleSubmit();
       setTimeout(function(){
           window.location.replace("http://localhost:3000/profilRouter/profil");
-      }, 1000);
+      }, 2000);
     }
 
 
