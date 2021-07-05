@@ -58,7 +58,7 @@ public class ObjavaPodaciController {
         List<ObjavaPodaci> nadjeno = objavaPodaciService.getJavneObjave();
 
     //  dodati
-       return  null;
+        return new ResponseEntity(objavaPodaciService.getSlikeFiles(nadjeno), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
