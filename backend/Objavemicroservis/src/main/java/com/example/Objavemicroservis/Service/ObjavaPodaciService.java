@@ -6,30 +6,21 @@ import com.example.Objavemicroservis.DTO.ObjavaDTO;
 import com.example.Objavemicroservis.DTO.SlikaDTO;
 import com.example.Objavemicroservis.Entity.Hashtag;
 import com.example.Objavemicroservis.Entity.Lokacija;
-import com.example.Objavemicroservis.Entity.Objava;
 import com.example.Objavemicroservis.Entity.ObjavaPodaci;
-import com.example.Objavemicroservis.FileUpload;
 import com.example.Objavemicroservis.ObjavaMapper;
 import com.example.Objavemicroservis.Repository.ObjavaPodaciRepository;
-import com.example.Objavemicroservis.Repository.ObjavaRepository;
 import com.example.Objavemicroservis.Service.interfejs.IHashtagService;
 import com.example.Objavemicroservis.Service.interfejs.ILokacijaService;
 import com.example.Objavemicroservis.Service.interfejs.IObjavaPodaciService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 import java.util.List;
@@ -51,8 +42,6 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     @Autowired
     private IHashtagService tagService;
 
-    @Autowired
-    private ObjavaRepository objavaRepository;
 
     private static String upload = "profil-slike";
 
@@ -81,7 +70,7 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     @Override
     public SlikaDTO slikaFile(ObjavaPodaci objavaPodaci, String filePath) {
         SlikaDTO slikaDTO = ObjavaMapper.mapObjavaPodaciToSlikaDTO(objavaPodaci);
-        File in = new File(filePath + objavaPodaci.getObjava().getNazivFajla());
+        File in = new File(filePath + objavaPodaci.getNazivFajla());
         try {
             slikaDTO.getKodSlike().add(IOUtils.toByteArray(new FileInputStream(in)));
         } catch (IOException e) {
@@ -136,7 +125,7 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
     private List<String> getUsernamesByPost(List<ObjavaPodaci> objavePodaci) {
         List<String> usernames = new ArrayList<>();
         for (ObjavaPodaci objavaPodaci : objavePodaci) {
-            usernames.add(objavaPodaci.getObjava().getUsername());
+            usernames.add(objavaPodaci.getUsername());
         }
         Set<String> set = new HashSet<>(usernames);
         usernames = set.stream().collect(Collectors.toList());
@@ -147,7 +136,7 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
         List<ObjavaPodaci> javneObjavePodaci = new ArrayList<>();
         for (ObjavaPodaci objavaPodaci : objavePodaci) {
             for (String username : usernames) {
-                if (objavaPodaci.getObjava().getUsername().equals(username))
+                if (objavaPodaci.getUsername().equals(username))
                     javneObjavePodaci.add(objavaPodaci);
             }
         }
@@ -161,7 +150,7 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
         List<ObjavaPodaci> sveObjavePodaci = findAll();
         List<ObjavaPodaci> objavePodaci = new ArrayList<>();
         for (ObjavaPodaci objavaPodaci : sveObjavePodaci) {
-            for (Hashtag hashtag : objavaPodaci.getObjava().getHashtagovi()) {
+            for (Hashtag hashtag : objavaPodaci.getHashtagovi()) {
                 if (hashtag.getNazivhashtaga().toLowerCase().contains(tag.toLowerCase()))
                     objavePodaci.add(objavaPodaci);
             }

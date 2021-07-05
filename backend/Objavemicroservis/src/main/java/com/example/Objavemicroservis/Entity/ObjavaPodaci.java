@@ -1,7 +1,7 @@
 package com.example.Objavemicroservis.Entity;
 
 import lombok.Data;
-import com.example.Objavemicroservis.Entity.Objava;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -38,8 +38,7 @@ public class ObjavaPodaci {
     @OneToOne
     private Album album;
 
-    @OneToOne
-    private Objava objava;
+
 
     @ManyToMany
     private List<Lajk> lajkovi;

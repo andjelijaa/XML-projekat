@@ -15,8 +15,11 @@ import java.util.List;
 @Service
 public class LajkService implements ILajkService {
 
+    @Autowired
     private LajkRepository lajkRepository;
 
+
+    @Autowired
     private IObjavaPodaciService objavaPodaciService;
 
     @Override
