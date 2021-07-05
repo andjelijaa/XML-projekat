@@ -23,10 +23,6 @@ function Profil(){
             <div className=" flex flex-col justify-center items-center w-2/6 text-center margin">
 
                 <div className="flex flex-col justify-center items-center border w-full border-12 border-blue-900 p-12 font-mono text-2xl text-blue-900 shadow-2xl bg-white my-12">
-                    <h1 className="my-4">Uspesno ste se ulogovali, {username}</h1>
-                </div>
-
-                <div className="flex flex-col justify-center items-center border w-full border-12 border-blue-900 p-12 font-mono text-2xl text-blue-900 shadow-2xl bg-white my-12">
                     <h1 className="my-4">Bili Gejtic</h1>
                     <img className="post-pick my-4" src={biliGejtic} alt="bili gejtic"></img>
                     <h3 className="my-4">#tb #oneyearago #vodka</h3>

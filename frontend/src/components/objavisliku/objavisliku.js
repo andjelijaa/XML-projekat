@@ -3,9 +3,6 @@ import axios from "axios";
 
 function Objavisliku(){
     const [nazivfajla, setNazivfajla] = useState("");
-    const [selectedFile, setSelectedFile] = useState('');
-    const [loading, setLoading] = useState(false);
-    const [file, setFile] = useState();
 
     const [tag, setTag] = useState([""]);
     const [lokacija, setLokacija] = useState("");
@@ -29,38 +26,14 @@ function Objavisliku(){
       "opis": opis
     })
 
-
-
-    /*const uploadImage=async e=>{
-     const files=e.target.files
-     const data = new FormData()
-     data.append('file',files[0])
-     data.append('upload_preset','darwin')
-     setLoading(true)
-     const res=await axios(
-       'http://localhost:7876/slika',
-     {
-       method:'POST',
-       body: data
-     }
-       )
-    const file=await res.json()
-    setSelectedFile(file.secure_url)
-     setLoading(false)
-    }*/
-
-
-    // MOJ UPLOAD IMAGE, PA SUTRA OVAJ MOJ OBRISI AKO NE RADI :D
     const uploadImage = (e) => {
        var bodyFormData = new FormData();
        bodyFormData.append('file', e.target.files[0]);
-      setLoading(true)
        axios.post("http://localhost:7876/slika/sacuvaj", bodyFormData, {
   
         }).then(res => {
           console.log(res.data);
         })
-        setLoading(false)
     }
   
     const handleTag = (e) => {
@@ -95,7 +68,6 @@ function Objavisliku(){
             }).then(res => {
                 if(res.status === 200){
                   console.log("Uspesna sacuvana slika");
-               
                 }
           })
         }
@@ -114,10 +86,7 @@ function Objavisliku(){
 
         <input
           type="file" multiple
-          value={selectedFile}
-          onChange={uploadImage}
-        />{loading ? (<h3>Loading...</h3> ) :
-        (<img src={selectedFile} style={{width:'300px'}} />)}
+          onChange={uploadImage}></input>
          <label> Dodaj opis</label>
         <input onChange={handleOpis} name="opis" type="text" className="border border-16 shadow-2xl my-2"></input>
         <label> Dodaj tag</label>
