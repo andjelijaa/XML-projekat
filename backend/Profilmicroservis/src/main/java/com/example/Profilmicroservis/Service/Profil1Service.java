@@ -14,12 +14,11 @@ public interface Profil1Service {
 
     List<Profil> pretraga(String username);
 
-
     Profil findUserByUsername(String username);
 
     Profil findUserByEmail(String email);
 
-    Profil registerProfil(ProfilRegistrovaniDTO profilReg);
+    Profil register(ProfilRegistrovaniDTO profilReg);
 
     Profil sacuvaj(Profil profil);
 
