@@ -22,8 +22,8 @@ public class ProfilController {
 
 
     @PostMapping("/add")
-    public void registerUser(@RequestBody ProfilRegistrovaniDTO profilRegistrovani) {
-        profil1Service.registerProfil(profilRegistrovani);
+    public void registerProfil(@RequestBody ProfilRegistrovaniDTO profilRegistrovani) {
+        profil1Service.register(profilRegistrovani);
     }
 
 
