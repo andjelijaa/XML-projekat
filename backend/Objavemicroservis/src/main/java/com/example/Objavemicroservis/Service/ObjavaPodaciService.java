@@ -81,15 +81,15 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
 
     @Override
     public List<SlikaDTO> getSlikeFiles(List<ObjavaPodaci> objavePodaci) {
-        List<SlikaDTO> slikaDto = new ArrayList<>();
+        List<SlikaDTO> slikaDtoi = new ArrayList<>();
         if (objavePodaci != null) {
             String filePath = new File("").getAbsolutePath();
             filePath = filePath.concat("/" + upload + "/");
-            for (ObjavaPodaci objavaPodaci : objavePodaci) {
-                slikaDto.add(slikaFile(objavaPodaci, filePath));
+            for (ObjavaPodaci objavaPodacii : objavePodaci) {
+                slikaDtoi.add(slikaFile(objavaPodacii, filePath));
             }
         }
-        return slikaDto;
+        return slikaDtoi;
     }
 
     @Override
