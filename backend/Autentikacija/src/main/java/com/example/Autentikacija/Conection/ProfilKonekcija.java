@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface ProfilKonekcija {
 
     @PostMapping("/profil/add")
-    void registerUser(@RequestBody ProfilRegistrovaniDTO profilRegistrovaniDTO);
+    void register(@RequestBody ProfilRegistrovaniDTO profilRegistrovaniDTO);
 
     @PostMapping("/profil/find")
     ProfilDTO getProfilByEmail(@RequestBody String email);

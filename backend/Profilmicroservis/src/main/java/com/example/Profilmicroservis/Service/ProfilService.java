@@ -42,7 +42,7 @@ public class ProfilService implements  Profil1Service {
     }
 
     @Override
-    public Profil registerProfil(ProfilRegistrovaniDTO profilReg) {
+    public Profil register(ProfilRegistrovaniDTO profilReg) {
         Profil profil = ProfilMapper.mapProfilRegistrovaniDtoToProfil(profilReg);
         return profilRepository.save(profil);
     }

@@ -47,12 +47,12 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
 
         profilRegistrovani.setUloga("KORISNIK");
 
-   /*    try{
-            profilKonekcija.registerUser(profilRegistrovaniDTO);
+       try{
+            profilKonekcija.register(profilRegistrovaniDTO);
         }catch (Exception e){
             throw new BadRequestException("Neuspesna registracija!");
         }
-     */   return profilRegistrovaniRepository.save(profilRegistrovani);
+       return profilRegistrovaniRepository.save(profilRegistrovani);
 
     }
 
@@ -65,5 +65,11 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
         return profilRegistrovani;
         }
     }
+
+    @Override
+    public ProfilRegistrovani update(ProfilRegistrovani profilRegistrovani, String stariUsername){
+        return null;
+    }
+
 
 }
