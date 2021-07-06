@@ -9,5 +9,5 @@ public interface ProfilRegistrovani1Service {
     ProfilRegistrovani findByUsername(String username);
     ProfilRegistrovani register(ProfilRegistrovaniDTO profilRegostrovani);
     ProfilRegistrovani login(ProfilRegistrovaniDTO profilRegistrovaniDTO) throws IOException;
-
+    ProfilRegistrovani update(ProfilRegistrovani profilRegistrovani, String stariUsername);
 }
