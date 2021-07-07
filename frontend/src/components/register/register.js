@@ -44,7 +44,7 @@ function Registracija(){
     const handleRequest = (e) => {
       e.preventDefault();
       handleSubmit()
-    window.location.replace("http://localhost:3000/login")
+      /*window.location.replace("http://localhost:3000/login")*/
     }
 
     function handleSubmit(){
