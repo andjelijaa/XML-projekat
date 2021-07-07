@@ -16,6 +16,7 @@ public class LajkController {
 
     @PostMapping
     public Lajk kreirajLajk(@RequestBody LajkDTO lajkDTO) {
+
         return lajkService.kreirajLajk(lajkDTO);
     }
 

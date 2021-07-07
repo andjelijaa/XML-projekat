@@ -118,7 +118,10 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
 
     @Override
     public List<SlikaDTO> pretraziLokaciju(String lokacija) {
+
+     // List<ObjavaPodaci> objavePodaci = objavaPodaciRepository.searchLokacija(lokacija);
         List<ObjavaPodaci> objavePodaci = objavaPodaciRepository.findObjavaPodaciByLokacija(lokacija);
+
         return getSlikeFiles(objavePodaci);
     }
 
@@ -155,8 +158,9 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
                     objavePodaci.add(objavaPodaci);
             }
         }
-        List<String> publicProfiles = profilKonekcija.javniProfili(getUsernamesByPost(objavePodaci));
-        objavePodaci = filterJavneObjavePodaciByUsernames(publicProfiles, objavePodaci);
+
+       // List<String> publicProfiles = profilKonekcija.javniProfili(getUsernamesByPost(objavePodaci));
+        //objavePodaci = filterJavneObjavePodaciByUsernames(publicProfiles, objavePodaci);
         return getSlikeFiles(objavePodaci);
     }
 
