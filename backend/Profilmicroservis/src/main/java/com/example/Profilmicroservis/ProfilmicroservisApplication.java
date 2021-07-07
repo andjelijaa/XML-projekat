@@ -19,7 +19,6 @@ public class ProfilmicroservisApplication {
 		SpringApplication.run(ProfilmicroservisApplication.class, args);
 	}
 
-
 	@Bean
 	public CorsFilter corsFilter() {
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
