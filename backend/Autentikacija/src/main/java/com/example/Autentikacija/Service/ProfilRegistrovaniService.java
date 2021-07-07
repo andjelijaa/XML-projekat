@@ -47,12 +47,12 @@ public class ProfilRegistrovaniService implements ProfilRegistrovani1Service {
 
         profilRegistrovani.setUloga("KORISNIK");
 
- /*      try{
+     try{
             profilKonekcija.register(profilRegistrovaniDTO);
         }catch (Exception e){
             throw new BadRequestException("Neuspesna registracija!");
         }
-   */    return profilRegistrovaniRepository.save(profilRegistrovani);
+    return profilRegistrovaniRepository.save(profilRegistrovani);
 
     }
 
