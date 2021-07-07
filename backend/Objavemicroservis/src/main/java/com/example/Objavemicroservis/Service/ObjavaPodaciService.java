@@ -159,8 +159,8 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
             }
         }
 
-       // List<String> publicProfiles = profilKonekcija.javniProfili(getUsernamesByPost(objavePodaci));
-        //objavePodaci = filterJavneObjavePodaciByUsernames(publicProfiles, objavePodaci);
+        List<String> publicProfiles = profilKonekcija.javniProfili(getUsernamesByPost(objavePodaci));
+        objavePodaci = filterJavneObjavePodaciByUsernames(publicProfiles, objavePodaci);
         return getSlikeFiles(objavePodaci);
     }
 
