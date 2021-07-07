@@ -69,17 +69,17 @@ public class ObjavaPodaciController {
 
     @GetMapping("/pretragatag")
     public ResponseEntity pretragaTag(@RequestParam String tag) {
-        return new ResponseEntity(objavaPodaciService.pretraziTag(tag), HttpStatus.OK);
+        List<ObjavaPodaci> userObjavePodaci = objavaPodaciRepository.findObjavaPodaciByHashtagovi(tag);
+        return new ResponseEntity(objavaPodaciService.getSlikeFiles(userObjavePodaci), HttpStatus.OK);
+        //return new ResponseEntity(objavaPodaciService.pretraziTag(tag), HttpStatus.OK);
     }
 
     @GetMapping("/pretragalokacija")
     public ResponseEntity pretragaLokacija(@RequestParam String lokacija) {
-        return new ResponseEntity(objavaPodaciService.pretraziLokaciju(lokacija), HttpStatus.OK);
+        List<ObjavaPodaci> userObjavePodaci = objavaPodaciRepository.findObjavaPodaciByLokacija(lokacija);
+        return new ResponseEntity(objavaPodaciService.getSlikeFiles(userObjavePodaci), HttpStatus.OK);
+        //return new ResponseEntity(objavaPodaciService.pretraziLokaciju(lokacija), HttpStatus.OK);
     }
 
-    @GetMapping("/pretragausername")
-    public ResponseEntity pretragaUsername(@RequestParam String username) {
-        //return new ResponseEntity(objavaPodaciService.(username), HttpStatus.OK);
-        return null;
-    }
+
 }
