@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(value = "Profilmicroservis", url = "http://profilmicroservis:7870")
+@FeignClient(name = "Profilmicroservis")
 public interface ProfilKonekcija {
 
     @PostMapping("/profil/javniprofili")
