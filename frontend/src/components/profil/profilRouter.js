@@ -2,7 +2,7 @@ import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import ProfilNavBar from "./ProfilNavbar";
 import ObjaviSliku from "../objavisliku/objavisliku";
 import Azuriranje from "../azuriranje/azuriranje";
-import Search from "../search/search";
+import Profilsearch from "../Profilsearch/Profilsearch";
 import Vidisvojeslike from "../vidisvojeslike/vidisvojeslike";
 import Profil from "./profil";
 import Login from "../login/login";
@@ -31,7 +31,7 @@ function ProfilRouter(){
                     <Route component={Vidisvojeslike} path="/:username/vidisvojeslike"></Route>
                     <Route component={Profil} path="/:username/profil"></Route>
                     <Route component={ObjaviSliku} path="/:username/objavisliku"></Route>
-                    <Route component={Search} path="/:username/Profilsearch"></Route>
+                    <Route component={Profilsearch} path="/:username/Profilsearch"></Route>
                     <Route component={Login} path="/:username/login"></Route>
                 </Switch>
             </BrowserRouter>
