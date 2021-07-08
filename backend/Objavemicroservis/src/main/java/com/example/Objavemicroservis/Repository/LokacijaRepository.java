@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface LokacijaRepository extends JpaRepository<Lokacija, Long> {
+
     Lokacija save(Lokacija lokacija);
 
     List<Lokacija> findAll();
