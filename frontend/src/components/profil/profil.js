@@ -6,7 +6,8 @@ function Profil(){
 
     const [username, setUsername] = useState("");
     const [objave, setObjave] = useState([]);
-
+    const [comment, setComment] = useState("");
+    const [sakriveno, setSakriveno] = useState(true);
 
     useEffect(() => {
 
@@ -37,6 +38,27 @@ function Profil(){
         e.target.style.color = "red";
     }
     
+    const handleComment = (e) => {
+      setComment(e.target.value);
+    }
+
+    const openComment = () => {
+      setSakriveno(false);
+    }
+
+
+    const sendComment = (id) => {
+      const url = "http://localhost:7876/komentar/kreiraj";
+      const data = {
+        "objavaID" : id,
+        "text" : comment,
+        "username" : username
+      }
+      axios.post()
+
+
+    }
+
     return (
         <main>
 
@@ -50,7 +72,11 @@ function Profil(){
               <li>#{i.hashtagovi}</li>
               <li>{i.lokacija}</li>
               <li className="fa fa-heart" onClick={handleHeartClick}> like </li>
-              <li className="fa fa-comments mb-12">comment</li>
+              <li className="fa fa-comments mb-12" onClick={openComment}>comment</li>
+              <div className={sakriveno ? "hidden" : "visible my-12"}>
+                <input type="text" className="border border-blue-700 mx-4" onChange={handleComment}></input>
+                <button type="button" onClick={sendComment(i.id)}>posalji komentar</button>
+              </div>
             </div>
         )
       })}
