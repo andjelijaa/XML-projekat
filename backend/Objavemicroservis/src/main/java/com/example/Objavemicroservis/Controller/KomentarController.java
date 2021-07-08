@@ -14,7 +14,7 @@ public class KomentarController{
     @Autowired
     private IKomentarService komentarService;
 
-    @PostMapping
+    @PostMapping("/kreiraj")
     public Komentar kreirajKomentar(@RequestBody KomentarDTO komentarDTO) {
         return komentarService.kreirajKomentar(komentarDTO);
     }
