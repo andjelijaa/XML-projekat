@@ -131,10 +131,10 @@ function Search(){
             <div className="w-full h-full text-2xl ">
             {objave.map(i => {
             return(
-                <div className="flex flex-col text-2xl justify-center items-center list-none gap-12 mb-32">
+                <div className="flex flex-col text-2xl justify-center items-center list-none gap-12  mb-24 border  border-black border-bottom-2xl">
                 <li>{i.opis}</li>
                 <img src={'data:image/png;base64,'+i.kodSlike[0]} alt="slika"></img>
-                <li>{i.hashtagovi}</li>
+                <li># {i.hashtagovi}</li>
                 <li>{i.lokacija}</li>
                 
                 </div>
