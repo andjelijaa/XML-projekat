@@ -7,14 +7,16 @@ function Profil(){
     const [username, setUsername] = useState("");
     const [objave, setObjave] = useState([]);
 
+
     useEffect(() => {
+
+
         const token = localStorage.getItem("token");
         const base64Url = token.split('.')[1];
         const base64 = base64Url.replace('-', '+').replace('_', '/');
         const wholeUser = JSON.parse(window.atob(base64))
         setUsername(wholeUser.sub);
    
-
 
         const url = 'http://localhost:7876/slika/sveobjave';
         axios.get(url,{
@@ -35,10 +37,8 @@ function Profil(){
         e.target.style.color = "red";
     }
     
-
     return (
         <main>
-
 
             <div className=" flex flex-col justify-center items-center w-2/6 text-center margin">
             <div className="w-full h-full text-2xl ">
