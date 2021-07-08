@@ -12,7 +12,7 @@ public class ObjavaDTO {
 
     private String nazivLokacije;
 
-    private List<String> tagovi;
+    private String hashtagovi;
 
     private String username;
 }

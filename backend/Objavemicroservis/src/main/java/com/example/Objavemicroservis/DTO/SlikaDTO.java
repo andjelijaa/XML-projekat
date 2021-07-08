@@ -13,8 +13,8 @@ public class SlikaDTO {
     private Long id;
     private String username;
     private String opis;
-    private Lokacija lokacija;
-    private List<Hashtag> hashtagovi;
+    private String lokacija;
+    private String hashtagovi;
     private List<Komentar> komentari;
     private boolean da_li_je_slika;
     private List<Lajk> lajkovi;

@@ -29,11 +29,11 @@ public class ObjavaPodaci {
     @ManyToMany
     private List<KorisnikTag> korisnikTagovi;
 
-    @ManyToMany
-    private List<Hashtag> hashtagovi;
+    @Column
+    private String hashtagovi;
 
-    @OneToOne
-    private Lokacija lokacija;
+    @Column
+    private String lokacija;
 
     @OneToOne
     private Album album;

@@ -98,9 +98,10 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
         objavaPodaci.setNazivFajla(slikaDto.getNazivFajla());
         objavaPodaci.setUsername(slikaDto.getUsername());
         objavaPodaci.setOpis(slikaDto.getOpis());
-        Lokacija lokacija = lokacijaService.findByName(slikaDto.getNazivLokacije());
-        objavaPodaci.setLokacija(lokacija);
-        objavaPodaci.setHashtagovi(tagService.kreirajHashTag(slikaDto.getTagovi()));
+       // Lokacija lokacija = lokacijaService.findByName(slikaDto.getNazivLokacije());
+        objavaPodaci.setLokacija(slikaDto.getNazivLokacije());
+        objavaPodaci.setHashtagovi(slikaDto.getHashtagovi());
+        //objavaPodaci.setHashtagovi(tagService.kreirajHashTag(slikaDto.getTagovi()));
         objavaPodaciRepository.save(objavaPodaci);
 
         return save(objavaPodaci);
@@ -150,7 +151,8 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
 
     @Override
     public List<SlikaDTO> pretraziTag(String tag) {
-        List<ObjavaPodaci> sveObjavePodaci = findAll();
+   return null;}
+        /*     List<ObjavaPodaci> sveObjavePodaci = findAll();
         List<ObjavaPodaci> objavePodaci = new ArrayList<>();
         for (ObjavaPodaci objavaPodaci : sveObjavePodaci) {
             for (Hashtag hashtag : objavaPodaci.getHashtagovi()) {
@@ -159,12 +161,12 @@ public class ObjavaPodaciService implements IObjavaPodaciService {
             }
         }
 
-       // List<String> publicProfiles = profilKonekcija.javniProfili(getUsernamesByPost(objavePodaci));
-        //objavePodaci = filterJavneObjavePodaciByUsernames(publicProfiles, objavePodaci);
+        List<String> publicProfiles = profilKonekcija.javniProfili(getUsernamesByPost(objavePodaci));
+        objavePodaci = filterJavneObjavePodaciByUsernames(publicProfiles, objavePodaci);
         return getSlikeFiles(objavePodaci);
     }
-
-    @Override
+*/
+   @Override
     public List<ObjavaPodaci> getJavneObjave() {
         List<ObjavaPodaci> objavePodaci = findAll();
         List<String> usernames = profilKonekcija.getPublicProfil();

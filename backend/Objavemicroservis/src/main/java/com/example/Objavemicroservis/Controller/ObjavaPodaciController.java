@@ -30,6 +30,8 @@ public class ObjavaPodaciController {
 
     private static String upload = "profil-slike";
 
+
+
     @PostMapping("/sacuvaj")
     public List<String> sacuvajSliku(@RequestParam("file") List<MultipartFile> multipartFiles) throws IOException {
         List<String> fileNazivi=new ArrayList<>();
@@ -42,6 +44,11 @@ public class ObjavaPodaciController {
         return fileNazivi;
     }
 
+    @GetMapping("/sveobjave")
+    public ResponseEntity getSveObjave() {
+        List<ObjavaPodaci> userObjavePodaci = objavaPodaciRepository.findAll();
+        return new ResponseEntity(objavaPodaciService.getSlikeFiles(userObjavePodaci), HttpStatus.OK);
+    }
 
     @GetMapping("/profil/{username}")
     public ResponseEntity getSlikeByUsername(@PathVariable("username") String username) {
