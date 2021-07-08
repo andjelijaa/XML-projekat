@@ -4,7 +4,7 @@ import axios from "axios";
 function Objavisliku(){
     const [nazivfajla, setNazivfajla] = useState("");
 
-    const [tag, setTag] = useState([""]);
+    const [tag, setTag] = useState("");
     const [lokacija, setLokacija] = useState("");
     const [username, setUsername]= useState("");
     const [opis, setOpis] = useState("");
@@ -20,7 +20,7 @@ function Objavisliku(){
 
     const userData = JSON.stringify({
       "nazivFajla" : nazivfajla,
-      "tagovi" : tag,
+      "hashtagovi" : tag,
       "nazivLokacije" : lokacija,
       "username" : username,
       "opis": opis
@@ -37,7 +37,7 @@ function Objavisliku(){
     }
   
     const handleTag = (e) => {
-      setTag(tag =>  [...tag,e.target.value]);
+      setTag(e.target.value);
     }
 
     const handleLokacija = (e) => {

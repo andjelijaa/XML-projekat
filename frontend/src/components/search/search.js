@@ -65,8 +65,11 @@ function Search(){
         }  
         else if(select==="lokacija"){
             const url = 'http://localhost:7876/slika/pretragalokacija';
-            alert(url);
-            axios.get(url,search,{
+            axios.get(url,{
+                   params:{
+                     "lokacija":search
+                   }
+            },{
                 headers: {
                       'content-type': 'application/json',
                    },
@@ -79,10 +82,14 @@ function Search(){
                    }
                  )
         }
-        else if(select==="takovi"){
+        else if(select==="tagovi"){
             const url = 'http://localhost:7876/slika/pretragatag';
-            alert(url);
-            axios.get(url,search,{
+     
+            axios.get(url,{
+                   params:{
+                     "tag":search
+                   }
+            },{
                 headers: {
                       'content-type': 'application/json',
                    },
@@ -127,8 +134,8 @@ function Search(){
                 <div className="flex flex-col text-2xl justify-center items-center list-none gap-12 mb-32">
                 <li>{i.opis}</li>
                 <img src={'data:image/png;base64,'+i.kodSlike[0]} alt="slika"></img>
-                <li>{i.hashtagovi[i.hashtagovi.length-1].nazivhashtaga}</li>
-                <li>{i.lokacija.name}</li>
+                <li>{i.hashtagovi}</li>
+                <li>{i.lokacija}</li>
                 
                 </div>
         )
