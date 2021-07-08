@@ -14,20 +14,6 @@ function Vidisvojeslike(){
         const base64 = base64Url.replace('-', '+').replace('_', '/');
         const wholeUser = JSON.parse(window.atob(base64))
         setUsername(wholeUser.sub);
-    },[username, setUsername])
-  
-
-    const handleRequest = (e) => {
-        e.preventDefault();
-        handleSubmit()
-        renderObjave();
-      }
-
-    const renderObjave = () => {
-      return null;
-    }   
-
-    function handleSubmit(){
         const url = 'http://localhost:7876/slika/profil/'+username;
         axios.get(url,{
         headers: {
@@ -41,20 +27,22 @@ function Vidisvojeslike(){
           }
         }
       )
-    }
+    },[username, setUsername])
+  
+   
+
     
  
     return(
         <main>
             <div className="background"></div>
-             <button onClick={handleRequest} className="border border-12 border-black text-black my-12 text-3xl" type="button">Prikazi slike</button>
         <div className="w-full h-full text-2xl ">
         {objave.map(i => {
           return(
             <div className="flex flex-col text-2xl justify-center items-center list-none gap-12 mb-24 border  border-black border-bottom-2xl">
               <li>{i.opis}</li>
               <img src={'data:image/png;base64,'+i.kodSlike[0]} alt="slika"></img>
-              <li>{i.hashtagovi}</li>
+              <li>#{i.hashtagovi}</li>
               <li>{i.lokacija}</li>
               
             </div>
