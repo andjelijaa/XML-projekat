@@ -40,7 +40,7 @@ public class ObjavaPodaci {
 
 
 
-    @ManyToMany
+    @OneToMany
     private List<Lajk> lajkovi;
 
     @ManyToMany
