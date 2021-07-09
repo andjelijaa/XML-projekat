@@ -14,7 +14,7 @@ public class LajkController {
     @Autowired
     private ILajkService lajkService;
 
-    @PostMapping
+    @PostMapping("/lajkuj")
     public Lajk kreirajLajk(@RequestBody LajkDTO lajkDTO) {
 
         return lajkService.kreirajLajk(lajkDTO);

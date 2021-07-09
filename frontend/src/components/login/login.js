@@ -24,7 +24,7 @@ function Login(){
       e.preventDefault();
       handleSubmit();
       setTimeout(function(){
-          window.location.replace("http://localhost:3000/"+username+"/profil");
+         window.location.replace("http://localhost:3000/"+username+"/profil");
       }, 2000);
     }
 

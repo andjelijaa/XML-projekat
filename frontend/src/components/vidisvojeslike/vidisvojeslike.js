@@ -44,7 +44,7 @@ function Vidisvojeslike(){
               <img src={'data:image/png;base64,'+i.kodSlike[0]} alt="slika"></img>
               <li>#{i.hashtagovi}</li>
               <li>{i.lokacija}</li>
-              
+
             </div>
         )
       })}

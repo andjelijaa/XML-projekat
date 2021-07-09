@@ -36,10 +36,7 @@ public class KomentarService implements IKomentarService {
         ObjavaPodaci objavaPodaci= objavaPodaciService.getById(komentarDTO.getObjavaID());
         List<Komentar> komentars=objavaPodaci.getKomentari();
         komentars.add(komentar);
-
-        komentarRepository.save(komentar);
-
-
+        objavaPodaciService.save(objavaPodaci);
         return komentar;
     }
 
